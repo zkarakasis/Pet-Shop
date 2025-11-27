@@ -1,0 +1,25 @@
+Main Page --- Zaf
+
+Product Pages
+    Dogs --- Chris
+    Cats --- Dimitris
+    Fish --- Dimitris
+    Birds --- Chris
+    Other --- Orfeas
+    Products/ Accessories --- Orfeas
+
+Item Description Pages
+
+Interactive Quiz --- Zaf
+
+Extras
+   Header --- Zaf
+   Footer --- Orfeas
+   Shoping Cart
+   Search function
+   Price range slider
+
+CSS Styles
+    Website color pallete
+    Fonts
+    ...
