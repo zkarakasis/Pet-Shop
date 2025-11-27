@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #EADFCE;
 }  
 header {
     background-color: #EADFCE;
@@ -12,6 +13,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 10;
+    border-bottom: 4px solid rgb(233, 187, 62);;
 }    
 nav a{
     margin-left: 20px;
@@ -54,12 +56,11 @@ nav a:hover {
     display:block;
 }
 .products{
-    margin-top: 50px;
+    margin-top: 0px;
     display:flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    background-color: #EADFCE;
     padding: 50px;
 
 }
@@ -118,6 +119,11 @@ nav a:hover {
     background-color: darkorange;
     transform: scale(1.05);
 }
+.ph1{
+    margin-left: 75px;
+    margin-right: 75px;
+}
+
 /* .next{
     margin-top: 30px;
     padding: 12px 25px;
