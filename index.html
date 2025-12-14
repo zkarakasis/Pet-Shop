@@ -19,34 +19,55 @@
             </div>
 
             <div class="header-right">
-                        <nav>
+                    <nav>
                         <a href="index.html">Home</a>
-                        <a href="pets">Pets</a>
-                        <a href="products">Products</a>
+                        <div class="dropdown">
+                            <a href="pets" class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="dogs.html">Dogs</a>
+                                <a href="cats.html">Cats</a>
+                                <a href="fish.html">Fish</a>
+                                <a href="birds.html">Birds</a>
+                                <a href="other.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="products.html">Products</a>
                         <a href="quiz.html">Quiz</a>
-                        <a href="info">About Us</a>
+                        <a href="info.html">About Us</a>
                     </nav>
 
                     <div class="cart">
                             🛒
                     </div>
             </div> 
-        </header>   
-            <main>
-                <section class="banner">     
-                     <img src="photos/banner.png" alt="banner">
-                </section> 
-                <div class="ph1"> 
-                    <section class="new-arrivals">
-                        <h2 class="new-arrivals-h2">New Arrivals!</h2>
-                        <div class="products">
-                            <div class="product-card">Product 1</div>
-                            <div class="product-card">Product 2</div>
-                            <div class="product-card">Product 3</div>
-                            <div class="product-card">Product 4</div>
-                        </div>
-                    </section>
-                </div>     
-            </main>    
+        </header>
+        <main>
+            <section class="banner">     
+                <img src="photos/banner.png" alt="banner">
+            </section> 
+            <div class="products-section">
+                <section class="new-arrivals">
+                    <h2 class="section-title">New Arrivals!</h2>
+                    <div class="products">
+                        <div class="product-card">Product 1</div>
+                        <div class="product-card">Product 2</div>
+                        <div class="product-card">Product 3</div>
+                        <!-- <div class="product-card">Product 4</div> -->
+                    </div>
+                </section>
+
+                <section class="best-sellers">
+                    <h2 class="section-title">Best Sellers!</h2>
+                    <div class="products">
+                        <div class="product-card">Product 4</div>
+                        <div class="product-card">Product 5</div>
+                        <div class="product-card">Product 6</div>
+                        <!-- <div class="product-card">Product 8</div> -->
+                    </div>
+                </section>
+            </div>   
+        </main>    
     </body>
 </html

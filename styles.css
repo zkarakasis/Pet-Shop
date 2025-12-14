@@ -2,28 +2,30 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #EADFCE;
+    
 }  
 header {
     background-color: #EADFCE;
-    color: rgb(233, 187, 62);
+    color: #E2852E;
     padding: 10px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 10;
-    border-bottom: 4px solid rgb(233, 187, 62);;
+    border-bottom: 2px solid #E2852E;
 }    
 nav a{
-    margin-left: 20px;
-    color:rgb(233, 187, 62);
+    margin-left: 35px;
+    color: #E2852E;
     font-weight:bold;
     text-decoration: none;
+    
 }
 nav a:hover {
     color: #000;
 }    
+   
 .header-left {
     display: flex;
     align-items: center;
@@ -43,7 +45,40 @@ nav a:hover {
     display: flex;
     align-items: center;
     gap:20px;
+    border: solid 2px #E2852E;
+    border-radius: 15px;
+    background-color: #ABE0F0;
+}
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ABE0F0;
+    border: 2px solid #E2852E;
+    border-top: transparent;
+    border-radius:0px 0px 15px 15px;
+    padding: 10px 0;
+    min-width: 100%;
+    
 }   
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #E2852E;
+    font-weight: bold;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
 .cart {
    font-size: 28px;
    cursor: pointer;
@@ -51,17 +86,31 @@ nav a:hover {
    
 }  
 .banner img{
-    width: 100%;
-    height:auto;
+    width:95%;
+    height: auto;
     display:block;
+    margin-left: 40px;
+    margin-right: 40px;
 }
+.products-section {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    padding: 50px;
+    flex-wrap: wrap;
+    padding-bottom: 800px;
+}
+.new-arrivals, .best-sellers {
+    flex: 1 1 400px;
+    background-color: #FFEED6;
+    padding: 20px;
+    border-radius: 20px;
+}    
 .products{
-    margin-top: 0px;
     display:flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    padding: 50px;
 
 }
 .product-card{
@@ -81,11 +130,13 @@ nav a:hover {
 .product-card:hover {
     transform: scale(1.05);
 }
-.new-arrivals-h2 {
+.section-title {
     text-align: center;
-    margin-top: 50px;
+    color: #E2852E;
+    margin-bottom: 20px;
 }
-.quiz{
+
+/* .quiz{
    background-color: rgb(187, 28, 187); 
    padding-top: 60px;
    padding-bottom: 300px;
@@ -97,7 +148,7 @@ nav a:hover {
 }
 .questions{
     /* text-align: left; */
-    font-weight: bold;
+    /* font-weight: bold;
     font-size: 30px;
     padding-left: 50px;
     color: white;
@@ -122,7 +173,7 @@ nav a:hover {
 .ph1{
     margin-left: 75px;
     margin-right: 75px;
-}
+} */
 
 /* .next{
     margin-top: 30px;
