@@ -157,12 +157,13 @@
         holder.addEventListener("mousemove", function(moving){
             if(hovering){
                 let rect = holder.getBoundingClientRect();
-                let x= moving.pageX - rect.left;
-                let y = moving.pageY - rect.top;
+                let x= moving.clientX - rect.left;
+                let y = moving.clientY - rect.top;
                 dropdetails.style.left= (x+10) + "px"
                 dropdetails.style.top=(y+10)+"px";
             }
         });
     </script>
     
+
 </html>
