@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Exotic animals</title>
+        <link rel="stylesheet" href="../styles.css">
+        <style>
+           
+            .image-holder{
+                display: inline-block;
+                transition: opacity 0,5s ease;
+                position: relative;
+                height: 100%;
+              
+            
+            }
+            .image-holder img{
+                display:block;
+                width:100%;
+                height:100%;
+                transition:opacity 0,5s ease;
+            }
+            .image-first{
+                
+                width: 100%;
+                height: 100%;
+                display: block;
+                opacity: 1;
+                border-radius: 10px;
+                
+                
+            }
+            .image-second{
+                position:absolute;
+                top:0;
+                overflow: auto;
+                height: 100%;
+                width: 100%;
+                display: block;
+                opacity: 0;
+                border-radius: 10px;
+            }
+            .dropdetails{
+                opacity:0;
+                position: absolute;
+                top: 50%;
+                left:70px;
+                overflow:visible;
+                background-color:#E2852E ;
+                border-radius: 10px;
+                width:500px;
+                padding: 5px;
+                border:groove, black;
+                pointer-events: none;
+
+            }
+            .image-holder:hover .image-first {
+                opacity: 0;
+            }
+             .image-holder:hover .image-second{ 
+                opacity: 1;    
+            }
+            .image-holder:hover .dropdetails{
+                opacity:1;
+            }
+        </style>
+    </head>
+    <body>
+         <header>
+            <div class="header-left">
+                <img src="../photos/logo.png" alt="logo" height="100" >
+                <h1>Pet Shop </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search..." >
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="../index.html">Home</a>
+                        <div class="dropdown">
+                            <a href="pets" class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="../dogs.html">Dogs</a>
+                                <a href="../cats.html">Cats</a>
+                                <a href="../fish.html">Fish</a>
+                                <a href="../birds.html">Birds</a>
+                                <a href="../other.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="../products.html">Products</a>
+                        <a href="../quiz.html">Quiz</a>
+                        <a href="../info.html">About Us</a>
+                    </nav>
+
+                    <div class="cart">
+                            🛒
+                    </div>
+            </div> 
+        </header>
+        <main>
+            <section class="banner">     
+                <img src="../photos/banner.png" alt="banner">
+            </section> 
+            <div class="products-section">
+                <section class="new-arrivals">
+                    <h2 class="section-title">Exotic animals</h2>
+                    <div class="products">
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <img src ="../photos/Fennec_Fox_Vulpes_zerda.jpg" class="image-first" alt="fennec" >
+                                <img src="../photos/fennec_hover.png" class="image-second" alt="fennec">
+                                <div class="dropdetails">
+                                    The fennec fox is a small fox native to the deserts of North Africa, ranging from Western Sahara and Mauritania to the Sinai Peninsula. Its most distinctive feature is its unusually large ears, which serve to dissipate heat and listen for underground prey. The fennec is the smallest fox species          
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card"> </div>
+                        <div class="product-card">Product 3</div>
+                        <div class="product-card">Product 4</div>
+                        <div class="product-card">Product 5</div>
+                        <div class="product-card">Product 6</div>
+                        <div class="product-card">Product 7</div>
+                        <div class="product-card">Product 8</div>
+                        <div class="product-card">Product 9</div>
+                        <div class="product-card">Product 10</div>
+                        <div class="product-card">Product 11</div>
+                        <div class="product-card">Product 12</div>
+                        <div class="product-card">Product 13</div>
+                        <div class="product-card">Product 14</div>
+                        <div class="product-card">Product 15</div>
+                        <!-- <div class="product-card">Product 4</div> -->
+                    </div>
+                </section>
+            </div>   
+        </main>
+             <footer>
+                <div class = "footer-top"> 
+                    <img src="../photos/logo.png">
+                </div>
+                <div class = "footer-bottom">
+                    <a href="../aboutUs.html" >About us</a>  
+                </div>
+            </footer>  
+    </body>
+    <script>
+        const holder = document.querySelector(".image-holder");
+        const dropdetails = document.querySelector(".dropdetails");
+        let hovering = false;
+        holder.addEventListener("mouseover", function(){
+            hovering = true;
+        });
+        holder.addEventListener("mousemove", function(moving){
+            if(hovering){
+                let rect = holder.getBoundingClientRect();
+                let x= moving.pageX - rect.left;
+                let y = moving.pageY - rect.top;
+                dropdetails.style.left= (x+10) + "px"
+                dropdetails.style.top=(y+10)+"px";
+            }
+        });
+    </script>
+    
+</html>
