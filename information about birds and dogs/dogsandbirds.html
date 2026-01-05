@@ -1,203 +1,207 @@
-<!doctype html>
-<meta charset="utf-8">
+<!DOCTYPE html>
 <html>
 
 <head>
-<title>Birds and Dogs</title>
-<style>
-img {width:20%;
-border:solid 2px #E2852E;
-height:300px;
-margin:4px;
-
-}
-body{
-background-color:#F5C857;
-font-size: 100%;
-text-align:left;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exotic animals</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .image-holder {
+            display: inline-block;
+            transition: opacity 0, 5s ease;
+            position: relative;
+            height: 100%;
 
 
-div{
-background-color:#ABE0F0 ;
-color:#E2852E;
-font-family:sans-serif;
-float: left;
-}
-span{
-color:#E2852E;
-font-family:monospace;
-z-index: 1;
-}
-.dog{
-   text-align: center; 
-    bottom: 10px;
+        }
+
+        .image-holder img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0, 5s ease;
+        }
+
+        .image-first {
+
+            width: 100%;
+            height: 100%;
+            display: block;
+            opacity: 1;
+            border-radius: 10px;
+
+
+        }
+
+        .image-second {
+            position: absolute;
+            top: 0;
+            overflow: auto;
+            height: 100%;
+            width: 100%;
+            display: block;
+            opacity: 0;
+            border-radius: 10px;
+        }
+
+        .dropdetails {
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 70px;
+            overflow: visible;
+            background-color: #E2852E;
+            border-radius: 10px;
+            width: 500px;
+            padding: 5px;
+            border: groove, black;
+            pointer-events: none;
+
+        }
+
+        .image-holder:hover .image-first {
+            opacity: 0;
+        }
+
+        .image-holder:hover .image-second {
+            opacity: 1;
+        }
+
+        .image-holder:hover .dropdetails {
+            opacity: 1;
+        }
+
+        .header-left img {
+            width: 700px;
+            height: 800;
+            ;
+        }
+
+        body {
+            text-align: center;
+
+        }
+        #img{
+            width:230px;
+            height:200px;
+            position: absolute;
+            bottom:65px;
+            right:1350px;
+        }
+
+
+        #img1{ width:230px;
+            height:200px;
+            position: absolute;
+            bottom:65px;
+            right:1105px;
+        }
+
+        #img2{ width:230px;
+            height:200px;
+            position: absolute;
+            bottom:65px;
+            right:850px;}
+
+        #img3{width:230px;
+            height:200px;
+            position: absolute;
+            bottom:65px;
+            right:590px;}
+
+        #img4{width:230px;
+            height:200px;
+            position: absolute;
+            bottom:65px;
+            right:330px;}
+
+            #img5{width:230px;
+            height:200px;
+            position: absolute;
+            bottom:65px;
+            right:80px;}
+        
+       
     
-
-}
-#go{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-
-#er{
-    position: absolute;
-    bottom: 610px;
-    left: 980px;
-}
-
-
-#tg{
-    position: absolute;
-    bottom: 610px;
-    left:620px;
-
-}
-
-#kl{
-    position: absolute;
-    bottom: 610px;
-    left:260px;
-}
-
-#po{
-    position: relative;
-    left: 30px;    
-
-}
-#mg{
-    position: relative;
-    bottom:468px;
-    left: 405px;
-}
-
-
-#dd{
-    position: relative;
-     bottom:960px;
-    left: 800px;
-}
-
-#yy{
-    position: relative;
-     bottom:1430px;
-    left: 1190px;
     
-}
-
-
-
-
-</style>
-
+    </style>
 </head>
+
 <body>
-<h3><span>Links for dog images:</span></h3>    
-<nav>
-    <ul>
-<li><a href="#Dogs">Dogs</a></li>
-<li><a href="#Cannis">Cannis</a></li>
-<li><a href="#Bulldog">Bulldog</a></li>
-<li><a href="#Corgi">Corgi</a></li>
-            </ul>   
-</nav>
-<h3><span>Links for bird images:</span></h3>    
-<nav>
+    <header>
+        <div class="header-left">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg5rK3pm3iLKAth3m5OzJEMxkTmMUzhTqK_Q&s"
+                alt="logo">
+            <h1>Pet Shop </h1>
+        </div>
 
-    <ul>
-<li><a href="#Birds">Birds</a></li>
-<li><a href="#nw">Canary</a></li>
-<li><a href="#Parrot">Parrot</a></li>
-<li><a href="#Falcon">Comon chaffinch</a></li>
-                </ul>            
-                        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+        </div>
 
-
-
-    <section>
-<h1 class="dog"><span id="Dogs">Dogs</span></h1>
-<p><a href="dogs.html"> for further guidence:</a></p>
-
-<img id="go" src="https://upload.wikimedia.org/wikipedia/commons/9/90/Labrador_Retriever_portrait.jpg">
-<div><p>The dog is a domesticated descendant of the gray wolf.Also called the domestic dog, it was selectively bred from a population
-of wolves during the Late Pleistocene by hunter-gatherers.Dogs were the first species to be 
-domesticated over 14,000 years ago,before the development of agriculture. 
-Due to their long association with humans, dogs have gained the ability to thrive on a starch-rich diet that would be 
-inadequate for other canids.Dogs have been bred for desired behaviors, sensory capabilities,and physical attributes.</p></div>
+        <div class="header-right">
+            <nav>
+                <div class="dropdown">
+                    <div class="dropdown-menu">
+                        <h1>The basic informations about all our kind's of birds and dogs:</h1>
+                        <div class="product-card"><a href="Bulldog.html"><img id="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3uHm_lnS1FF4P9WhwDn9csHlkUcyptBH5wLiLCRIJTvJHo6D8T9bDQDZQMT4atrC3vNvQAiHaHTTIGUrHB4qWnujI1nOPbaN_xtJSD-0&s=10"></a></div>
+                        <div class="product-card"><a href="Cannis.html"><img id="img1" src="https://media.istockphoto.com/id/1486727816/photo/profile-of-large-male-grey-wolf-walking-on-a-hill-in-the-forest.jpg?s=612x612&w=0&k=20&c=zmotwYQQ5lpuzkluHUJ8Ywmrd0ZbXdWT7RyjrcwU-xM="></a></div>
+                        <div class="product-card"><a href="Corgi.html"><img id="img2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAu_P37qDq96iEg4MvbCfrOMyd7zLpYS_6FVu7u7td2_zC-S1nCJCd0DqZirNSU3QtO0OyEznixWg5aBVgkeSuPcmpAw-DC5NnhtlaHA&s=10"></a></div>
+                        <div class="product-card"><a href="parrot.html"><img id="img3" src="https://www.rtl.de/img/1590959/1479489948/c16_9/1200/papagei-t9145.webp"></a></div>
+                        <div class="product-card"><a href="Canary.html"><img id ="img4" src="https://pethellas.gr/wp-content/uploads/2025/11/%CE%9A%CE%B1%CE%BD%CE%B1%CF%81%CE%AF%CE%BD%CE%B9%CE%B1-Timprado.jpg"></a></div>
+                        <div class="product-card"><a href="Comonchaffinch.html"><img id="img5" src="https://tropicisland.gr/wp-content/uploads/2021/02/Long-tail-finch.jpg"></a></div>
 
 
-<h2 class="dog"><span id="Cannis">Cannis</span></h2>
-<p><a href="Cannis.html"> for more information:</a></p>
-
-<img  id="er" src="https://media.istockphoto.com/id/1486727816/photo/profile-of-large-male-grey-wolf-walking-on-a-hill-in-the-forest.jpg?s=612x612&w=0&k=20&c=zmotwYQQ5lpuzkluHUJ8Ywmrd0ZbXdWT7RyjrcwU-xM=">
-<div><p>The dog (Canis familiaris or Canis lupus familiaris) is a domesticated descendant of the gray wolf. 
-Also called the domestic dog, it was selectively bred from a population of wolves during the Late Pleistocene
-by hunter-gatherers. Dogs were the first species to be domesticated over 14,000 years ago, before the development of
-agriculture. Due to their long association with humans, dogs have gained the ability to thrive on a starch-rich diet 
-that would be inadequate for other canids.</p></div>
-
-<h2 class="dog"><span id="Bulldog">Bulldog</span></h2>
-<p><a href="Bulldog.html">click here:</a></p>
-
-<img  id="tg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3uHm_lnS1FF4P9WhwDn9csHlkUcyptBH5wLiLCRIJTvJHo6D8T9bDQDZQMT4atrC3vNvQAiHaHTTIGUrHB4qWnujI1nOPbaN_xtJSD-0&s=10">
-<div><p>The Bulldog is a British breed of dog of mastiff type. It may also be known as the English Bulldog or British Bulldog.
-It is a stocky, muscular dog of medium size, with a large head, thick folds of skin around the face and shoulders and a 
-relatively flat face with a protruding lower jaw. Selective breeding for appearance has led to increased susceptibility 
-to various health problems including brachycephaly, hip dysplasia and heat sensitivity.</p></div>
-
-<h2 class="dog"><span id="Corgi">Corgi</span></h2>
-<p><a href="Corgi.html">Visit our animal:</a></p>
-
-<img  id="kl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAu_P37qDq96iEg4MvbCfrOMyd7zLpYS_6FVu7u7td2_zC-S1nCJCd0DqZirNSU3QtO0OyEznixWg5aBVgkeSuPcmpAw-DC5NnhtlaHA&s=10">
-<div><p>The Pembroke Welsh Corgi is a cattle herding dog breed that originated in Pembrokeshire, Wales.[1] 
-The name Corgi is of Welsh origin, and is a compound of the words cor and ci (mutated to gi), meaning "dwarf" and "dog", 
-respectively.[a] It is one of two breeds known as a Welsh Corgi, the other being the Cardigan Welsh Corgi. 
-Pembroke Welsh Corgis are descended from the Spitz family of dog.</p></div>
-
-<h1><span id="Birds">Birds</span></h1>
-<p><a href="Birds.html">Visit Birds Website:</a></p>
-
-<img  id="po"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhj81Ns_sBG6IX4hIrzPyYMqBsvz8vbYoLUQ&s">
-<div><p>Birds are a group of warm-blooded theropod dinosaurs constituting the class Aves, characterised by feathers, 
-toothless beaked jaws, the laying of hard-shelled eggs, a high metabolic rate, a four-chambered heart, and a strong 
-yet lightweight skeleton. Birds live worldwide and range in size from the 5.5 cm (2.2 in) bee hummingbird to the 2.8 m 
-(9 ft 2 in) common ostrich. There are over 11,000 living species and they are split into 44 orders.</p></div>
-
-<h2 class="dog"><span id="nw">Cannary</span></h2>
-<p><a href="Canary.html">Visit Canary Website:</a></p>
-
-<img  id="mg" src="https://pethellas.gr/wp-content/uploads/2025/11/%CE%9A%CE%B1%CE%BD%CE%B1%CF%81%CE%AF%CE%BD%CE%B9%CE%B1-Timprado.jpg"> 
-<div><p>The canary is a songbird of the ratite order and belongs to the finch family (Fringillidae). The official name of the domesticated 
-canary is sirinus canaria domesticus.Canaries were introduced to Spain in the 15th century after the Spanish conquest of the Canary Islands.
-Due to a shipping accident, a large shipment of canaries escaped and soon spread throughout Europe. 
-The canary is also likely to have originated from the wild canary ( serinus canaria canaria ), 
-which is native to the Canary Islands of Madeira , the Azores , Tenerife </p></div>
-
-<h2 class="dog"><span id="Parrot">Parrot</span></h2>
-<p><a href="parrot.html">Visit Parrot Website:</a></p>
-
-<img  id="dd" src="https://www.rtl.de/img/1590959/1479489948/c16_9/1200/papagei-t9145.webp">
-<div><p>The name parrot refers to various species of mostly arboreal birds that form the order Psittaciformes , which is divided 
-into 3 families: Cockatoos (Cacatuidae), Psittacidae (Psittacidae) and Strigopidae . There are currently 386 classified species 
-of parrots, belonging to 88 genera.They are found on all continents of the world, although in Europe there is no endemic species, although some species have been 
-reported as feral in many European countries.</p></div>
-
-
-<h2 class="dog"><span id="Falcon">Common chaffinch</span></h2>
-<p><a href="Comonchaffinch.html">For more info about Common chaffinch:</a></p>
-<img  id="yy" src="https://tropicisland.gr/wp-content/uploads/2021/02/Long-tail-finch.jpg">
-<div><p>The chaffinch (Fringillia coelebs) commonly known as the chaffinch, also known by 
-the names of the chaffinch and the chaffinch; includes many genera and species that are 
-found almost all over the world, except Australia . [ 1 ] It is a small bird and resembles a sparrow .
-Its beak is short, strong and thick at its base. This configuration allows it to break the hard 
-shells of the seeds that constitute its food.</p></div>
-
-<div><p></p></div>
-</section>
+                    </div>
+                </div>
 
 
 
+            </nav>
+
+
+
+        </div>
+        </div>
+    </header>
+    <main>
+
+        <div class="products-section">
+            <section class="new-arrivals">
+                <div class="products">
+                    <div class="product-card">
+                        <div class="image-holder">
+
+                            <div class="dropdetails">
+                            </div>
+
+            
+            </section>
+        </div>
+    </main>
+    <footer>
+       
+
+    
+    </footer>
 </body>
+<script>
+    const holder = document.querySelector(".image-holder");
+    const dropdetails = document.querySelector(".dropdetails");
+    let hovering = false;
+    holder.addEventListener("mouseover", function () {
+        hovering = true;
+    });
+    holder.addEventListener("mousemove", function (moving) {
+        if (hovering) {
+            let rect = holder.getBoundingClientRect();
+            let x = moving.clientX - rect.left;
+            let y = moving.clientY - rect.top;
+            dropdetails.style.left = (x + 10) + "px"
+            dropdetails.style.top = (y + 10) + "px";
+        }
+    });
+</script>
+
 </html>
