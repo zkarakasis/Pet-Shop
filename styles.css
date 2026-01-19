@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #EADFCE;
+    background-color: rgb(248, 228, 192);
     
 }  
 header {
@@ -14,7 +14,9 @@ header {
     position: sticky;
     top: 0;
     border-bottom: 2px solid #E2852E;
-}    
+}  
+
+
 nav a{
     margin-left: 35px;
     color: #E2852E;
@@ -41,6 +43,29 @@ nav a:hover {
     color: #666;
     text-align: left;
 }  
+.search-box {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    background: white;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 999;
+}
+
+.search-results div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search-results div:hover {
+    background: #E2852E;
+    color: white;
+}
+
 .header-right {
     display: flex;
     align-items: center;
@@ -58,13 +83,17 @@ nav a:hover {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
+    transform: translateX(-55%); 
+    width: 100px;
     background-color: #ABE0F0;
     border: 2px solid #E2852E;
     border-top: transparent;
-    border-radius:0px 0px 15px 15px;
-    padding: 10px 0;
-    min-width: 100%;
+    border-radius: 0px 0px 15px 15px;
+    text-align: center;
+    
+    
+    
     
 }   
 .dropdown-menu a {
@@ -86,11 +115,10 @@ nav a:hover {
    
 }  
 .banner img{
-    width:95%;
+    width:100%;
     height: auto;
-    display:block;
-    margin-left: 40px;
-    margin-right: 40px;
+    display: block;
+    
 }
 .products-section {
     display: flex;
@@ -100,12 +128,9 @@ nav a:hover {
     flex-wrap: wrap;
     padding-bottom: 800px;
 }
-.new-arrivals, .best-sellers {
-    flex: 1 1 400px;
-    background-color: #FFEED6;
-    padding: 20px;
-    border-radius: 20px;
-}    
+
+
+
 .products{
     display:flex;
     justify-content: center;
@@ -125,71 +150,111 @@ nav a:hover {
     color: #0c0b0b;
     cursor:pointer;
     transition: transform 0.2s;
+    flex-shrink: 0;
+    
     
 }
 .product-card:hover {
     transform: scale(1.05);
 }
+
 .section-title {
     text-align: center;
     color: #E2852E;
     margin-bottom: 20px;
 }
 
-/* .quiz{
-   background-color: rgb(187, 28, 187); 
-   padding-top: 60px;
-   padding-bottom: 300px;
-   text-align: center;
+
+
+.preview-section {
+    background-color: #FFEED6;
+    padding: 50px;
+    border-radius: 25px;
+    max-width: 1200px;
+    margin: 60px auto;
 }
-.quiz-title{
-    font-size: 40px;
-    color: rgb(233, 187, 62);
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
-.questions{
-    /* text-align: left; */
-    /* font-weight: bold;
-    font-size: 30px;
-    padding-left: 50px;
-    color: white;
+
+.carousel-window {
+    width: 690px;
+    overflow: hidden;
 }
-.answers button{
-    margin: 15px auto;
-    padding: 12px 25px;
-    font-size: 16px;
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.4s ease;
+}
+
+.arrow {
+    font-size: 32px;
+    background: none;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    background-color: rgb(233, 187, 62);
+    color: #E2852E;
+}
+
+.arrow:hover {
+    color: black;
+}
+
+
+
+.cart-container {
+    position: relative;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+    color: #E2852E;
+}
+
+.clear-cart-btn {
+    background-color: #E2852E;
     color: white;
-    transition: background-color 0.2s, transform 0.2s;
+    border: none;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    cursor: pointer;
+    line-height: 15px;
+    padding: 0;
+}
+
+.clear-cart-btn:hover {
+    background-color: red;
+}
+
+.cart-link {
+    text-decoration: none;
+    color: #E2852E;
+    font-weight: bold;
+}
+
+.cart-link:hover {
+    color: black;
+}
+
+.error {
     display: block;
-      
-}
-.answers button:hover {
-    background-color: darkorange;
-    transform: scale(1.05);
-}
-.ph1{
-    margin-left: 75px;
-    margin-right: 75px;
-} */
-
-/* .next{
-    margin-top: 30px;
-    padding: 12px 25px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #d35400;
-    color: white;
-    transition: background-color 0.2s, transform 0.2s;
-
+    margin: auto;
+    width: 28%;
 }
 
-.next-btn:hover {
-    background-color: #a04000;
-    transform: scale(1.05);
-} */
+.bodych{
+    background-color: rgb(238, 223, 200);
+}
+
+
+
+
 

@@ -11,18 +11,19 @@
         <header>
             <div class="header-left">
                 <img src="photos/logo.png" alt="logo" height="100" >
-                <h1>Pet Shop </h1>
+                <h1>Pup Fiction </h1>
             </div>
 
             <div class="search-box">
-                <input type="text" placeholder="Search..." >
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
             </div>
 
             <div class="header-right">
                     <nav>
                         <a href="index.html">Home</a>
                         <div class="dropdown">
-                            <a href="pets" class="dropdown-pets">Pets</a>
+                            <a class="dropdown-pets">Pets</a>
                             <div class="dropdown-menu">
                                 <a href="dogs.html">Dogs</a>
                                 <a href="cats.html">Cats</a>
@@ -38,36 +39,67 @@
                         <a href="info.html">About Us</a>
                     </nav>
 
-                    <div class="cart">
-                            🛒
+                    
+                    <div class="cart-container">
+                        <a href="checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
                     </div>
+
+
+
             </div> 
         </header>
         <main>
             <section class="banner">     
                 <img src="photos/banner.png" alt="banner">
             </section> 
-            <div class="products-section">
-                <section class="new-arrivals">
-                    <h2 class="section-title">New Arrivals!</h2>
-                    <div class="products">
-                        <div class="product-card">Product 1</div>
-                        <div class="product-card">Product 2</div>
-                        <div class="product-card">Product 3</div>
-                        <!-- <div class="product-card">Product 4</div> -->
-                    </div>
-                </section>
 
-                <section class="best-sellers">
-                    <h2 class="section-title">Best Sellers!</h2>
-                    <div class="products">
-                        <div class="product-card">Product 4</div>
-                        <div class="product-card">Product 5</div>
-                        <div class="product-card">Product 6</div>
-                        <!-- <div class="product-card">Product 8</div> -->
+            <div class="preview-section">
+                <h2 class="section-title">Take a sneak peek at our animals!</h2>
+                <div class="carousel">
+                    <button class="arrow" id="leftBtn">◀</button>
+                    <div class="carousel-window">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="product-card">
+                                <a href="dogs.html"> <img src="photos/dog.jpg" alt="Dog"></a>        
+                            </div>                            
+                            <div class="product-card">
+                                <a href="dogs.html"> <img src="photos/dog.jpg" alt="Dog"></a>        
+                            </div>
+                            <div class="product-card">
+                                <a href="dogs.html"> <img src="photos/dog.jpg" alt="Dog"></a>        
+                            </div> 
+                            <div class="product-card">
+                                <a href="dogs.html"> <img src="photos/dog.jpg" alt="Dog"></a>        
+                            </div> 
+                            <div class="product-card">
+                                <a href="dogs.html"> <img src="photos/dog.jpg" alt="Dog"></a>        
+                            </div> 
+                            <div class="product-card">
+                                <a href="dogs.html"> <img src="photos/dog.jpg" alt="Dog"></a>        
+                            </div> 
+                            <div class="product-card">
+                                <a href="dogs.html"> <img src="photos/dog.jpg" alt="Dog"></a>        
+                            </div> 
+                            <div class="product-card">
+                                <a href="dogs.html"> <img src="photos/dog.jpg" alt="Dog"></a>        
+                            </div>  
+                        </div>
                     </div>
-                </section>
-            </div>   
-        </main>    
+                    <button class="arrow" id="rightBtn">▶</button>
+                </div>
+            </div>
+
+<div class="product-card">
+    Dog<br>
+    $20<br>
+    <button onclick="addToCart(20)">+</button>
+</div>
+        </main> 
+
+        <script src="javaScript.js"></script>
+
     </body>
-</html
+</html>
