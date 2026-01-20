@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Exotic animals</title>
+        <style>
+            header{
+                z-index: 10000;
+            }
+           body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #EADFCE;
+                
+            }  
+            header {
+                background-color: #EADFCE;
+                color: #E2852E;
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+                border-bottom: 2px solid #E2852E;
+            }    
+            nav a{
+                margin-left: 35px;
+                color: #E2852E;
+                font-weight:bold;
+                text-decoration: none;
+                
+            }
+            nav a:hover {
+                color: #000;
+            }    
+            
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .search-box input {
+                padding: 8px 12px;
+                width: 450px;
+                border-radius: 5px;
+                border: 1px solid #aaa;
+                font-size: 14px;
+                background-color: #f3f3f3;
+                color: #666;
+                text-align: left;
+            }  
+            .header-right {
+                display: flex;
+                align-items: center;
+                gap:20px;
+                border: solid 2px #E2852E;
+                border-radius: 15px;
+                background-color: #ABE0F0;
+            }
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #ABE0F0;
+                border: 2px solid #E2852E;
+                border-top: transparent;
+                border-radius:0px 0px 15px 15px;
+                padding: 10px 0;
+                min-width: 100%;
+                
+            }   
+            .dropdown-menu a {
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #E2852E;
+                font-weight: bold;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            
+            }  
+            .banner img{
+                width:95%;
+                height: auto;
+                display:block;
+                margin:auto;
+
+            }
+            .products-section {
+                display: flex;
+                gap: 40px;
+                justify-content: center;
+                padding: 100px;
+                flex-wrap: wrap;
+                padding-bottom: 80px;
+                width: 70%;
+                margin: auto;
+            }
+            .new-arrivals, .best-sellers {
+                flex: 1 1 400px;
+                background-color: #FFEED6;
+                padding: 20px;
+                border-radius: 20px;
+            }    
+            .products{
+                display:flex;
+                justify-content: center;
+                gap: 130px;
+                flex-wrap: wrap;
+
+            }
+            .product-card{
+                width: 320px;
+                height: 500px;
+                background-color: rgb(233, 187, 62);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                color: #0c0b0b;
+                cursor:pointer;
+                overflow: hidden;
+                
+            }
+            .section-title {
+                text-align: center;
+                color: #E2852E;
+                margin-bottom: 80px;
+            }
+           .footer{
+                background-color: #E2852E;
+                color: #000;
+                padding: 40px 20px;
+                margin-top: 60px;
+                width: 100%;
+                clear: both;
+                bottom: 0%;
+            }
+
+            .footer-container{
+                display: flex;
+                justify-content: flex-start;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 40px;
+
+            }
+
+            .footer-logo img{
+                width: 80px;
+                margin-bottom: 10px;
+            }
+
+            .footer h4{
+                margin-bottom: 10px;
+            }
+
+            .footer p{
+                margin: 5px 0;
+                font-size: 14px;
+            }
+            .image-holder{
+                display: inline-block;
+                transition: opacity 0.5s ease;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                overflow: visible;
+
+            }   
+            .image-holder img{
+                display:block;
+                width:100%;
+                height:100%;
+            }
+            .image-first{
+                
+                width: 100%;
+                height: 100%;
+                display: block;
+                opacity: 1;
+                border-radius: 10px;
+            }
+            .image-second{
+                position:absolute;
+                top:0;
+                overflow: auto;
+                height: 100%;
+                width: 100%;
+                display: block;
+                opacity: 0;
+                border-radius: 10px;
+                z-index: 2;
+            }
+            .dropdetails{
+                opacity:0;
+                position:fixed;
+                top: 50%;
+                left:70px;
+                overflow:visible;
+                background-color:#E2852E ;
+                border-radius: 10px;
+                width:500px;
+                padding: 5px;
+                border:groove black;
+                pointer-events: none;
+                z-index: 100000;
+            }
+            .image-holder:hover .image-first {
+                opacity: 0;
+            }
+             .image-holder:hover .image-second{ 
+                opacity: 1;   
+            }
+            .image-holder:hover .dropdetails{
+                opacity:1;
+            }
+            .product-title {
+                position: absolute;
+                top: 10px;
+                left:10%;
+                color: #E2852E;
+                background-color: #ABE0F0;
+                padding: 8px 16px;
+                border-radius: 8px;
+                margin: 0;
+                font-size: 18px;
+                z-index: 3;
+                text-align: center;
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+    <body>
+         <header>
+            <div class="header-left">
+                <img src="../photos/logo.png" alt="logo" height="100" >
+                <h1>Pet Shop </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search..." >
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="../index.html">Home</a>
+                        <div class="dropdown">
+                            <a href="pets" class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="../dogs.html">Dogs</a>
+                                <a href="../cats.html">Cats</a>
+                                <a href="../fish.html">Fish</a>
+                                <a href="../birds.html">Birds</a>
+                                <a href="../other.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="../products.html">Products</a>
+                        <a href="../quiz.html">Quiz</a>
+                        <a href="../info.html">About Us</a>
+                    </nav>
+
+                    <div class="cart">
+                            🛒
+                    </div>
+            </div> 
+        </header>
+        <main>
+            <section class="banner">     
+                <img src="../photos/banner.png" alt="banner">
+            </section> 
+            <div class="products-section">
+                <section class="new-arrivals">
+                    <h2 class="section-title">Exotic animals</h2>
+                    <div class="products">
+                        <div class="product-card">
+                             
+                            <div class="image-holder">
+                                <h3 class="product-title">Fennec Fox</h3>
+                                <img src ="../photos/fennecfoxchat.png" class="image-first" alt="fennec" >
+                                <a href="./fennec.html" ><img src="../photos/fennec_hover.png" class="image-second" alt="fennec"></a>
+                                <div class="dropdetails">
+                                    The fennec fox is a small fox native to the deserts of North Africa, ranging from Western Sahara and Mauritania to the Sinai Peninsula. Its most distinctive feature is its unusually large ears, which serve to dissipate heat and listen for underground prey. The fennec is the smallest fox species          
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">chameleon </h3>
+                                <img src ="../photos/chameleon1.png" class="image-first" alt="chameleon" >
+                                <a href="./Chameleon.html" ><img src="../photos/chameleonhover.png" class="image-second" alt="chameleon"></a>
+                                <div class="dropdetails">The panther chameleon (Furcifer pardalis) is a species of chameleon found in the eastern and northern parts of Madagascar in a tropical forest biome. Additionally, it has been introduced to Réunion and Mauritius, as well as the state of Florida within the United States.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Kinkajou</h3>
+                                <img src ="../photos/Kinkajou-serious.png" class="image-first" alt="Kinkajou"  >
+                                <a href="./Kinkajou.html" ><img src="../photos/Kinkajou-happy.png" class="image-second" alt="Kinkajou"></a>
+                                <div class="dropdetails">
+                                     The kinkajouis a tropical rainforest mammal of the family Procyonidae related to olingos, coatis, raccoons, and the ringtail and cacomistle. It is the only member of the genus Potos and is also known as the "honey bear" 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Chinchilla</h3>
+                                <img src ="../photos/Chinchilla1.png" class="image-first" alt="Chinchilla" >
+                                <a href="./Chinchilla.html" ><img src="../photos/chinchilaHappy.png" class="image-second" alt="Chinchilla"></a>
+                                <div class="dropdetails">
+                                    Historically, chinchillas lived in an area that included parts of Bolivia, Peru and Chile, but today, colonies in the wild are known only in Chile.Along with their relatives, viscachas, they make up the family Chinchillidae. They are also related to the chinchilla rat
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Axolotl</h3>
+                                <img src ="../photos/axolotl.png" class="image-first" alt="axolotl" >
+                                <a href="./Axolotl.html" ><img src="../photos/axolotlhappy.png" class="image-second" alt="axolotl"></a>
+                                <div class="dropdetails">
+                                    The axolotl is a species of paedomorphic mole salamanderAxolotls originally inhabited a system of interconnected wetlands and lakes in the Mexican highlands. They were known to inhabit the smaller lakes of Xochimilco and Chalco, and are also presumed to have inhabited the larger lakes of Texcoco and Zumpango
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">bat-eared fox</h3>
+                                <img src ="../photos/bateaeredfox.png" class="image-first" alt="bateaeredfox" >
+                                <a href="./Bat-eared.html" ><img src="../photos/batearedfoxhappy.png" class="image-second" alt="bateaeredfox"></a>
+                                <div class="dropdetails">
+                                    The bat-eared foxs a species of fox found on the African savannaThe bat referred to in its colloquial name is possibly the Egyptian slit-faced bat which is abundant in the region and has very large ears.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">capybara</h3>
+                                <img src ="../photos/capybara.png" class="image-first" alt="capybara" >
+                                <a href="./capybara.html" ><img src="../photos/capybarapet.png" class="image-second" alt="capybara"></a>
+                                <div class="dropdetails">
+                                   The capybaraor greater capybarais the largest living rodent,native to South America.The capybara inhabits savannas and dense forests, and lives near bodies of water. It is a highly social species and can be found in groups as large as one hundred individuals, but usually live in groups of 10–20 individuals.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Spotted Genet</h3>
+                                <img src ="../photos/genet.png" class="image-first" alt="Spotted Genet" >
+                                <a href="./SpottedGenet.html" ><img src="../photos/genetpet.png" class="image-second" alt="Spotted Genet"></a>
+                                <div class="dropdetails">
+                                    The common genetis a small viverrid indigenous to Africa that was introduced to southwestern Europe. It is widely distributed north of the Sahara, in savanna zones south of the Sahara to southern Africa and along the coast of Arabia, Yemen and Oman.         
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Raccoons</h3>
+                                <img src ="../photos/racoon.png" class="image-first" alt="Raccoons" >
+                                <a href="./Raccoon.html" ><img src="../photos/racoonpet.png" class="image-second" alt="Raccoons"></a>
+                                <div class="dropdetails">
+                                    The raccoonsometimes called the North Americanraccoon s the largest of the procyonid family, having a body length of 40 to 70 cm and a body weight of 5 to 26 kgIts grayish coat mostly consists of dense underfur, which insulates it against cold weather. The animal's most distinctive features include its extremely dexterous front paws, its facial mask, and its ringed tail, which are common themes in the mythologies of the Indigenous peoples of the Americas surrounding the species. The raccoon is noted for its intelligence
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Sugar Glider</h3>
+                                <img src ="../photos/sugarglider.png" class="image-first" alt="Sugar Glider" >
+                                <a href="./SugarGlider.html" ><img src="../photos/sugargliderpet.png" class="image-second" alt="Sugar Glider"></a>
+                                <div class="dropdetails">
+                                    The sugar glideris a small, omnivorous, arboreal, and nocturnal gliding possum. The common name refers to its predilection for sugary foods such as sap and nectar and its ability to glide through the air, much like a flying squirrel.  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Opossum</h3>
+                                <img src ="../photos/opossum.png" class="image-first" alt="Opossum" >
+                                <a href="./Opossum.html" ><img src="../photos/opossumpet.png" class="image-second" alt="Opossum"></a>
+                                <div class="dropdetails">
+                                    Opossums originated in South America and entered North America in the Great American Interchange following the connection of North and South America in the late CenozoicOpossums are usually solitary and nomadic, staying in one area as long as food and water are easily available. Some families will group together in ready-made burrows or even under houses. Though they will temporarily occupy abandoned burrows, they do not dig or put much effort into building their own.        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Porcupine</h3>
+                                <img src ="../photos/Porcupine.png" class="image-first" alt="Porcupine" >
+                                <a href="./Porcupine.html" ><img src="../photos/Porcupinepet.png" class="image-second" alt="Porcupine"></a>
+                                <div class="dropdetails">
+                                    Porcupines are large rodents with coats of sharp spines, or quills, that protect them against predators.The largest species of porcupine is the third-largest living rodent in the world, after the capybara and beaver.Most porcupines are about 60–90 cm (25–36 in) long, with a 20–25 cm (8–10 in) long tail. Weighing 5–16 kg (12–35 lb), they are rounded, large, and slow.          
+                                </div>
+                            </div>                       
+                        </div>
+                    </div>
+                </section>
+            </div>   
+        </main>
+    <footer class="footer">
+        <div class="footer-container">
+
+                <div class="footer-logo">
+                    <img src="../photos/logo.png" alt="logo">
+                </div>
+            
+
+            <div class="footer-about">
+                <h4> About us </h4>
+                <p>
+                    We are a pet store dedicated to providing healthy pets,
+                quality food, and accessories for your lovely companions.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h4> Contact information: </h4>
+                <h4> Petstoreinfo@gmail.com </h4>
+                <h4> Location: Thessaloniki, Greece </h4>
+            </div>
+            
+            </div>
+    </footer> 
+    </body>
+    <script>
+            const holders = document.querySelectorAll(".image-holder");
+            holders.forEach(holder => {
+                const dropdetails = holder.querySelector(".dropdetails");
+                let hovering = false;
+                
+                holder.addEventListener("mouseenter", function(){
+                    hovering = true;
+                });
+                
+                holder.addEventListener("mouseleave", function(){
+                    hovering = false;
+                });
+                
+                holder.addEventListener("mousemove", function(moving){
+                    if(hovering){
+                        dropdetails.style.left = (moving.clientX + 10) + "px";
+                        dropdetails.style.top = (moving.clientY + 10) + "px";
+                    }
+                });
+            });
+    </script>
+    <script src="../javaScript.js"></script>
+</html>

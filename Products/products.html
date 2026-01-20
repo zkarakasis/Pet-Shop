@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Exotic animals</title>
+        <style>
+            header{
+                z-index: 10000;
+            }
+           body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #EADFCE;
+                
+            }  
+            header {
+                background-color: #EADFCE;
+                color: #E2852E;
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+                border-bottom: 2px solid #E2852E;
+            }    
+            nav a{
+                margin-left: 35px;
+                color: #E2852E;
+                font-weight:bold;
+                text-decoration: none;
+                
+            }
+            nav a:hover {
+                color: #000;
+            }    
+            
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .search-box input {
+                padding: 8px 12px;
+                width: 450px;
+                border-radius: 5px;
+                border: 1px solid #aaa;
+                font-size: 14px;
+                background-color: #f3f3f3;
+                color: #666;
+                text-align: left;
+            }  
+            .header-right {
+                display: flex;
+                align-items: center;
+                gap:20px;
+                border: solid 2px #E2852E;
+                border-radius: 15px;
+                background-color: #ABE0F0;
+            }
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #ABE0F0;
+                border: 2px solid #E2852E;
+                border-top: transparent;
+                border-radius:0px 0px 15px 15px;
+                padding: 10px 0;
+                min-width: 100%;
+                
+            }   
+            .dropdown-menu a {
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #E2852E;
+                font-weight: bold;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            
+            }  
+            .banner img{
+                width:95%;
+                height: auto;
+                display:block;
+                margin:auto;
+
+            }
+            .products-section {
+                display: flex;
+                gap: 40px;
+                justify-content: center;
+                padding: 100px;
+                flex-wrap: wrap;
+                padding-bottom: 80px;
+                width: 70%;
+                margin: auto;
+            }
+            .new-arrivals, .best-sellers {
+                flex: 1 1 400px;
+                background-color: #FFEED6;
+                padding: 20px;
+                border-radius: 20px;
+            }    
+            .products{
+                display:flex;
+                justify-content: center;
+                gap: 130px;
+                flex-wrap: wrap;
+
+            }
+            .product-card{
+                width: 400px;
+                height: 500px;
+                background-color: rgb(233, 187, 62);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                color: #0c0b0b;
+                cursor:pointer;
+                overflow: hidden;
+                
+            }
+            .section-title {
+                text-align: center;
+                color: #E2852E;
+                margin-bottom: 80px;
+            }
+            .footer{
+                background-color: #E2852E;
+                color: #000;
+                padding: 40px 20px;
+                margin-top: 60px;
+                width: 100%;
+                clear: both;
+                bottom: 0%;
+            }
+
+            .footer-container{
+                display: flex;
+                justify-content: flex-start;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 40px;
+
+            }
+
+            .footer-logo img{
+                width: 80px;
+                margin-bottom: 10px;
+            }
+
+            .footer h4{
+                margin-bottom: 10px;
+            }
+
+            .footer p{
+                margin: 5px 0;
+                font-size: 14px;
+            }
+            .image-holder{
+                display: inline-block;
+                transition: opacity 0.5s ease;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                overflow: visible;
+
+            }   
+            .image-holder img{
+                display:block;
+                width:100%;
+                height:100%;
+            }
+            .image-first{
+                
+                width: 100%;
+                height: 100%;
+                display: block;
+                opacity: 1;
+                border-radius: 10px;
+            }
+            .image-second{
+                position:absolute;
+                top:0;
+                overflow: auto;
+                height: 100%;
+                width: 100%;
+                display: block;
+                opacity: 0;
+                border-radius: 10px;
+                z-index: 2;
+            }
+            .dropdetails{
+                opacity:0;
+                position:fixed;
+                top: 50%;
+                left:70px;
+                overflow:visible;
+                background-color:#E2852E ;
+                border-radius: 10px;
+                width:500px;
+                padding: 5px;
+                border:groove black;
+                pointer-events: none;
+                z-index: 100000;
+            }
+            .image-holder:hover .image-first {
+                opacity: 0;
+            }
+             .image-holder:hover .image-second{ 
+                opacity: 1;   
+            }
+            .image-holder:hover .dropdetails{
+                opacity:1;
+            }
+            .product-title {
+                position: absolute;
+                top: 10px;
+                left:10%;
+                color: #E2852E;
+                background-color: #ABE0F0;
+                padding: 8px 16px;
+                border-radius: 8px;
+                margin: 0;
+                font-size: 18px;
+                z-index: 3;
+                text-align: center;
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-left">
+                <img src="../photos/logo.png" alt="logo" height="100" >
+                <h1>Pup Fiction </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <div class="dropdown">
+                            <a class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="dogs.html">Dogs</a>
+                                <a href="cats.html">Cats</a>
+                                <a href="fish.html">Fish</a>
+                                <a href="birds.html">Birds</a>
+                                <a href="other.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="products.html">Products</a>
+                        <a href="quiz.html">Quiz</a>
+                        <a href="aboutUs.html">About Us</a>
+                    </nav>
+
+                    
+                    <div class="cart-container">
+                        <a href="checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
+                    </div>
+            </div> 
+        </header>
+        <main>
+            <section class="banner">     
+                <img src="../photos/banner.png" alt="banner">
+            </section> 
+            <div class="products-section">
+                <section class="new-arrivals">
+                    <h2 class="section-title">Products</h2>
+                    <div class="products">
+                        <div class="product-card">
+                             
+                            <div class="image-holder">
+                                <h3 class="product-title">Royal Canin Indoor(cat)</h3>
+                                <img src ="../photos/catfood.webp" class="image-first" alt="cat food" >
+                                <a href="./catfood.html" ><img src="../photos/catfood2.webp" class="image-second" alt="cat food"></a>
+                                <div class="dropdetails">
+                                    Indoor cats move significantly less than other cats who are free to roam around outside. This lack of movement can cause slower digestion, smelly stool and even weight gain and obesity. This Royal Canin Indoor 27 Cat has been specially developed to meet the unique nutritional needs of indoor cats. It contains high-quality L.I.P. proteins from selected, easily digestible protein sources with high biological value.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Royal Canin Training Treats(dog) </h3>
+                                <img src ="../photos/dogfood.webp" class="image-first" alt="dog food" >
+                                <a href="./dogfood.html" ><img src="../photos/dogfood2.webp" class="image-second" alt="dog food"></a>
+                                <div class="dropdetails">
+                                    These Royal Canin Training Treats are the perfect reward for your dog during training. The tasty snacks have been specially developed for dogs over 6 months old, offering a delicious flavour that your puppy will love. The low-calorie recipe provides fewer than 4kcal per snack, so you can provide your dog with a little bit of joy without neglecting its nutrition.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">TetraPro Energy Multi-Crisp</h3>
+                                <img src ="../photos/fishfood.webp" class="image-first" alt="Fish Food"  >
+                                <a href="./fishfood.html" ><img src="../photos/fishfood2.webp" class="image-second" alt="Fish Food"></a>
+                                <div class="dropdetails">
+                                     With TetraPRO Energy premium food, you can provide your tropical ornamental fish with the concentrated energy of nutrients and vitamins. The special crisp shape of the flakes minimises water pollution, and Tetra's complete food also scores points with its optimal protein-to-food ratio and excellent digestibility.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">JR Birds Individual Cockatiel Food</h3>
+                                <img src ="../photos/birdfood.webp" class="image-first" alt="Bird food" >
+                                <a href="./birdfood.html" ><img src="../photos/birdfood2.webp" class="image-second" alt="Bird food"></a>
+                                <div class="dropdetails">
+                                    JR Birds Individual Cockatiel Food is a top quality complete food specifically suited to the needs of cockatiels and parakeets. Developed by experts and inspected by independent laboratories, it contains a mixture of premium ingredients, providing your bird with a varied and balanced diet.                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Relax Radiator Bed</h3>
+                                <img src ="../photos/catbed.webp" class="image-first" alt="Radiator Bed" >
+                                <a href="./catbed.html" ><img src="../photos/catbed2.webp" class="image-second" alt="Radiator Bed"></a>
+                                <div class="dropdetails">
+                                    What better place for your cat to relax than on the warming radiator, and the Relax Radiator Bed is the perfect retreat for your pet. The bed is quickly and easily attached to a radiator of your choice and your cat can stretch out and get comfortable in no time. 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Rubber Chicken Dog Toy</h3>
+                                <img src ="../photos/dogtoy2.png" class="image-first" alt="Rubber Chicken Dog Toy" >
+                                <a href="./dogtoy.html" ><img src="../photos/dogtoy.webp" class="image-second" alt="Rubber Chicken Dog Toy"></a>
+                                <div class="dropdetails">
+                                    Dogs just love this playful Rubber Chicken Dog Toy! Give your local cats, squirrels and postmen a break - even the most avid hunter won't be able to resist the gleeful squeaks our latex rooster lets out when squeezed. Fun for your dog, and for everyone watching! 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Little Fish Plastic Cat Bowls - Set of 2</h3>
+                                <img src ="../photos/catbowl.webp" class="image-first" alt="Cat Bowls" >
+                                <a href="./catbowl.html" ><img src="../photos/catbowl2.webp" class="image-second" alt="Cat Bowls"></a>
+                                <div class="dropdetails">
+                                    This great-value set of two Little Fish Plastic Cat Bowls lets you give your cat's feeding area a coordinated look. Each eye-catching bowl is decorated with two adorable fish motifs and is made from durable, machine-washable plastic for easy cleaning.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Ferplast Piano 6 Bird Cage</h3>
+                                <img src ="../photos/birdcage.webp" class="image-first" alt="Bird Cage" >
+                                <a href="./birdcage.html" ><img src="../photos/birdcage2.webp" class="image-second" alt="Bird Cage"></a>
+                                <div class="dropdetails">
+                                    The Ferplast Piano 6 Bird Cage is a spacious cage with a wide range of accessories for your budgies, zebra finches or canaries. The cage accessories supplied are made of plastic and are easy to clean. A total of four rotating food containers ensure a varied diet for your birds, while two included water bottles ensure their hydration.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Voyage Rucksack</h3>
+                                <img src ="../photos/backpack.webp" class="image-first" alt="Voyage Rucksack" >
+                                <a href="./backpack.html" ><img src="../photos/backpack2.webp" class="image-second" alt="Voyage Rucksack"></a>
+                                <div class="dropdetails">
+                                    This Voyage Rucksack is a practical way to transport your pet hands-free, in a safe and non-complicated way. Unlike leads or bags with carry handles, this rucksack allows you to keep both hands free. It is 39cm high and has a base area of 33 x 24cm, making it suitable for small dogs, cats and small pets with a maximum bodyweight of 5kg. 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>   
+        </main>
+    <footer class="footer">
+        <div class="footer-container">
+
+                <div class="footer-logo">
+                    <img src="../photos/logo.png" alt="logo">
+                </div>
+            
+
+            <div class="footer-about">
+                <h4> About us </h4>
+                <p>
+                    We are a pet store dedicated to providing healthy pets,
+                quality food, and accessories for your lovely companions.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h4> Contact information: </h4>
+                <h4> Petstoreinfo@gmail.com </h4>
+                <h4> Location: Thessaloniki, Greece </h4>
+            </div>
+            
+            </div>
+    </footer> 
+    </body>
+    <script>
+            const holders = document.querySelectorAll(".image-holder");
+            holders.forEach(holder => {
+                const dropdetails = holder.querySelector(".dropdetails");
+                let hovering = false;
+                
+                holder.addEventListener("mouseenter", function(){
+                    hovering = true;
+                });
+                
+                holder.addEventListener("mouseleave", function(){
+                    hovering = false;
+                });
+                
+                holder.addEventListener("mousemove", function(moving){
+                    if(hovering){
+                        dropdetails.style.left = (moving.clientX + 10) + "px";
+                        dropdetails.style.top = (moving.clientY + 10) + "px";
+                    }
+                });
+            });
+
+    </script>
+     <script src="javaScript.js"></script>
+    
+</html>

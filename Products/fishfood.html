@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> TetraPro Energy Multi-Crisp </title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #ABE0F0;
+                border: 2px solid #E2852E;
+                border-top: transparent;
+                border-radius:0px 0px 15px 15px;
+                padding: 10px 0;
+                min-width: 100%;
+                
+            }   
+            .dropdown-menu a {
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #E2852E;
+                font-weight: bold;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            } 
+
+            /* For the image slider */
+
+            .product-image{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .slider{
+                position: relative;
+                width: 400px;
+                height: 500px;
+                overflow: hidden;
+                border-radius: 20px;
+            }
+
+            .Slide{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .Slide.active{
+                opacity: 1;
+            }
+            .prev, .next{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                border: none;
+                font-size: 22px;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+
+            .prev{
+                left: 10px;
+            }
+
+            .next{
+                right: 10px;
+            }
+
+            .prev:hover, .next:hover{
+                background-color: #fb9700;
+            }
+
+            /* For the hidden description */
+            
+            .hidden-text{
+                display: none;
+            }
+
+            .see-more-button{
+                margin-top: 10px;
+                background-color:  #fb9700;
+                color: white;
+                border: none;
+                padding: 6px 14px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+            .see-more-button:hover{
+                background-color: #E2852E;
+            }
+
+            .add-to-cart{
+                padding: 12px 24px;
+                font-size: 16px;
+                background-color: #E2852E;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .add-to-cart:hover{
+                background-color: #c96f1f;
+                transform: scale(1.05);
+            }
+            
+            /* Product page Css */
+            .product-page{
+                display: flex;
+                gap: 40px;
+                max-width: 1100px;
+                margin: 60px auto;
+                padding: 20px;
+                align-items: flex-start;
+            }
+
+            .product-info h1{
+                margin-top: auto;
+            }
+
+            .product-image img{
+                width: 400px;
+                height: auto;
+                border-radius: 12px;
+                border: 3px solid #ddd;
+                display: block;
+            }
+
+
+            .price{
+                font-size: 20px;
+                color: #000;
+                font-weight: bold;
+            }
+
+            .add-to-cart{
+                padding: 12px 24px;
+                font-size: 16px;
+                background-color: #E2852E;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .add-to-cart:hover{
+                background-color: #c96f1f;
+                transform: scale(1.05);
+            }
+
+            /* Footer (My Version) */
+            .footer{
+                background-color: #E2852E;
+                color: #000;
+                padding: 40px 20px;
+                margin-top: 60px;
+                width: 100%;
+                clear: both;
+                position:fixed;
+                bottom: 0%;
+            }
+
+            .footer-container{
+                display: flex;
+                justify-content: flex-start;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 40px;
+
+            }
+
+            .footer-logo img{
+                width: 80px;
+                margin-bottom: 10px;
+            }
+
+            .footer h4{
+                margin-bottom: 10px;
+            }
+
+            .footer p{
+                margin: 5px 0;
+                font-size: 14px;
+            }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header section -->
+         <header>
+            <div class="header-left">
+                <img src="../photos/logo.png" alt="logo" height="100" >
+                <h1>Pup Fiction </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <div class="dropdown">
+                            <a class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="dogs.html">Dogs</a>
+                                <a href="cats.html">Cats</a>
+                                <a href="fish.html">Fish</a>
+                                <a href="birds.html">Birds</a>
+                                <a href="other.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="products.html">Products</a>
+                        <a href="quiz.html">Quiz</a>
+                        <a href="aboutUs.html">About Us</a>
+                    </nav>
+
+                    
+                    <div class="cart-container">
+                        <a href="checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
+                    </div>
+            </div> 
+        </header>
+    <!-- Main section -->
+    <main class="product-page">
+        <!-- Product Image -->
+        <section class="product-image">
+            <div class="slider">
+                <img src="../photos/fishfood.webp" class="Slide active" alt="Slide 1">
+                <img src="../photos/fishfood2.webp" class="Slide" alt="Slide 2">
+                <img src="../photos/fishfood3.webp" class="Slide" alt="Slide 2">
+
+                <button class="prev" onclick="changeSlide(-1)"> prev </button>
+                <button class="next" onclick="changeSlide(1)"> next </button>
+            </div>
+        </section>
+
+        <section class="product-info">
+            <h1> TetraPro Energy Multi-Crisp </h1>
+            <!-- Price -->
+            <p class="price">
+                <strong> Price: </strong> 12€
+            </p>
+            <!-- Availability -->
+            <p class="availability">
+                <strong> Availability: </strong> In stock
+            </p>
+            <!-- Add-to-cart -->
+            <button class="add-to-cart" onclick="addToCart(12)"> Add to cart </button>
+            <!-- Description -->
+            <p class="decription">
+                With TetraPRO Energy premium food, you can provide your tropical ornamental fish with the concentrated energy of nutrients and vitamins. The special crisp shape of the flakes minimises water pollution, and Tetra's complete food also scores points with its optimal protein-to-food ratio and excellent digestibility. A balanced diet is essential for the health and well-being of the fish in your aquarium. With TetraPRO Energy flake food, you can give your tropical ornamental fish extra energy and provide them with all the nutrients they need every day to thrive. This complete food is produced using a patented low-temperature gentle process that ensures vitamin stability and high nutritional value. The optimised protein-fat ratio of the Multi-Crisps contributes to improved feed utilisation, which, when used continuously, leads to reduced nitrate accumulation and thus increased water quality.
+            </p>
+        </section>
+    </main>
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+
+                <div class="footer-logo">
+                    <img src="../photos/logo.png" alt="logo">
+                </div>
+            
+
+            <div class="footer-about">
+                <h4> About us </h4>
+                <p>
+                    We are a pet store dedicated to providing healthy pets,
+                quality food, and accessories for your lovely companions.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h4> Contact information: </h4>
+                <h4> Petstoreinfo@gmail.com </h4>
+                <h4> Location: Thessaloniki, Greece </h4>
+            </div>
+            
+            </div>
+    </footer>
+    </div>
+    
+</body>
+
+<!-- Javascript for the slider -->
+ <script>
+    let currentSlide = 0;
+    const Slide = document.querySelectorAll(".Slide")
+
+    function changeSlide(direction) {
+        Slide[currentSlide].classList.remove("active");
+
+        currentSlide += direction;
+
+        if (currentSlide < 0) {
+            currentSlide = Slide.length -1;
+        }
+
+        if (currentSlide >= Slide.length) {
+            currentSlide = 0;
+        }
+
+        Slide[currentSlide].classList.add("active");
+    }
+
+ </script>
+    <script src="../javaScript.js"></script>
+</html>
