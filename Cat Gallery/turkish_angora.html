@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Turkish Angora </title>
+    <link rel="stylesheet" href="/Cat products/styles.css">
+    <style>
+        header {
+                background-color: #fb9700;
+                color: #f9f9f9;
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+                border-bottom: 2px solid #E2852E;
+            }    
+            nav a{
+                margin-left: 35px;
+                color: #E2852E;
+                font-weight:bold;
+                text-decoration: none;
+                
+            }
+            nav a:hover {
+                color: #000;
+            }    
+            
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .search-box input {
+                padding: 8px 12px;
+                width: 450px;
+                border-radius: 5px;
+                border: 1px solid #aaa;
+                font-size: 14px;
+                background-color: #f3f3f3;
+                color: #666;
+                text-align: left;
+            }  
+            .header-right {
+                display: flex;
+                align-items: center;
+                gap:20px;
+                border: solid 2px #E2852E;
+                border-radius: 15px;
+                background-color: #ABE0F0;
+            }
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #ABE0F0;
+                border: 2px solid #E2852E;
+                border-top: transparent;
+                border-radius:0px 0px 15px 15px;
+                padding: 10px 0;
+                min-width: 100%;
+                
+            }   
+            .dropdown-menu a {
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #E2852E;
+                font-weight: bold;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            }
+
+            /* For the image slider */
+
+            .product-image{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .slider{
+                position: relative;
+                width: 400px;
+                height: 500px;
+                overflow: hidden;
+                border-radius: 20px;
+            }
+
+            .Slide{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .Slide.active{
+                opacity: 1;
+            }
+            .prev, .next{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                border: none;
+                font-size: 22px;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+
+            .prev{
+                left: 10px;
+            }
+
+            .next{
+                right: 10px;
+            }
+
+            .prev:hover, .next:hover{
+                background-color: #fb9700;
+            }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header section -->
+    <header>
+        <div class="header-left">
+            <img src="/Cat products/photos/logo.png" alt="logo" height="100">
+            <h1>Pet Shop</h1>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="header-right">
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="pets" class="dropdown-pets">Pets</a>
+                    <div class="dropdown-menu">
+                        <a href="dogs.html">Dogs</a>
+                        <a href="cats.html">Cat</a>
+                        <a href="fish.html">Fish</a>
+                        <a href="birds.html">Birds</a>
+                        <a href="other.html">Other</a>
+                    </div>
+                </div>
+
+                <a href="products.html">Products</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="info.html">About us</a>
+            </nav>
+            <div class="cart" height="5">
+                🛒
+            </div>
+        </div>
+    </header>
+
+    <!-- Main section -->
+    <main class="product-page">
+        <!-- Product Image -->
+        <section class="product-image">
+            <div class="slider">
+                <img src="/Cat products/photos/Turkish.jpg" class="Slide active" alt="Slide 1">
+                <img src="/Cat Gallery/photos_sliders/turkish_s2.jpg" class="Slide" alt="Slide 2">
+                <img src="/Cat Gallery/photos_sliders/turkish_s3.jpg" class="Slide" alt="Slide 2">
+
+                <button class="prev" onclick="changeSlide(-1)"> prev </button>
+                <button class="next" onclick="changeSlide(1)"> next </button>
+            </div>
+        </section>
+        
+        <section class="product-info">
+            <h1> Turkish angora </h1>
+            <!-- Price -->
+            <p class="price">
+                <strong> Price: </strong> 1.250€
+            </p>
+            <!-- Availability -->
+            <p class="availability">
+                <strong> Availability: </strong> In stock
+            </p>
+            <!-- Add-to-cart -->
+            <button class="add-to-cart"> Add to cart </button>
+            <!-- Description -->
+            <p class="decription">
+                Turkish angora description (work in progress)
+            </p>
+        </section>
+    </main>
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+
+                <div class="footer-logo">
+                    <img src="../Cat products/photos/logo.png" alt="logo">
+                </div>
+            
+
+            <div class="footer-about">
+                <h4> About us </h4>
+                <p>
+                    We are a pet store dedicated to providing healthy pets,
+                quality food, and accessories for your lovely companions.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h4> Contact information: </h4>
+                <h4> Petstoreinfo@gmail.com </h4>
+                <h4> Location: Thessaloniki, Greece </h4>
+            </div>
+            
+            </div>
+    </footer>
+    </div>
+    
+</body>
+<!-- Javascript for the slider -->
+ <script>
+    let currentSlide = 0;
+    const Slide = document.querySelectorAll(".Slide")
+
+    function changeSlide(direction) {
+        Slide[currentSlide].classList.remove("active");
+
+        currentSlide += direction;
+
+        if (currentSlide < 0) {
+            currentSlide = Slide.length -1;
+        }
+
+        if (currentSlide >= Slide.length) {
+            currentSlide = 0;
+        }
+
+        Slide[currentSlide].classList.add("active");
+    }
+ </script>
+</html>
