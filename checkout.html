@@ -1,56 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Checkout</title>
-        <link rel="stylesheet" href="styles.css">
-</head>
-<body class="bodych">
-    <header>
-            <div class="header-left">
-                <img src="photos/logo.png" alt="logo" height="100" >
-                <h1>Pet Shop </h1>
-            </div>
+    <head>
+        <meta charset="UTF-8"> 
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+            <title>Checkout</title>
+            <link rel="stylesheet" href="styles.css">
+    </head>
+    
+    <body class="bodych">
+        <header>
+                <div class="header-left">
+                    <img src="photos/logo.png" alt="logo" height="100" >
+                    <h1>Pup Fiction </h1>
+                </div>
 
-            <div class="search-box">
-                <input type="text" placeholder="Search..." >
-            </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
 
-            <div class="header-right">
-                    <nav>
-                        <a href="index.html">Home</a>
-                        <div class="dropdown">
-                            <a class="dropdown-pets">Pets</a>
-                            <div class="dropdown-menu">
-                                <a href="dogs.html">Dogs</a>
-                                <a href="cats.html">Cats</a>
-                                <a href="fish.html">Fish</a>
-                                <a href="birds.html">Birds</a>
-                                <a href="other.html">Other</a>
+                <div class="header-right">
+                        <nav>
+                            <a href="index.html">Home</a>
+                            <div class="dropdown">
+                                <a class="dropdown-pets">Pets</a>
+                                <div class="dropdown-menu">
+                                    <a href="dogs.html">Dogs</a>
+                                    <a href="cats.html">Cats</a>
+                                    <a href="fish.html">Fish</a>
+                                    <a href="birds.html">Birds</a>
+                                    <a href="other.html">Other</a>
+                                </div>
                             </div>
+                            
+                            
+                            <a href="products.html">Products</a>
+                            <a href="quiz.html">Quiz</a>
+                            <a href="aboutUs.html">About Us</a>
+                        </nav>
+
+                        
+                        <div class="cart-container">
+                            <a href="checkout.html" class="cart-link">
+                                🛒 <span id="cartTotal" class="cart-number"></span>
+                            </a>
+                            <button class="clear-cart-btn" onclick="resetCart()">✕</button>
                         </div>
-                        
-                        
-                        <a href="products.html">Products</a>
-                        <a href="quiz.html">Quiz</a>
-                        <a href="info.html">About Us</a>
-                    </nav>
-
-                    
-                    <div class="cart-container">
-                        <a href="checkout.html" class="cart-link">
-                            🛒 <span id="cartTotal" class="cart-number"></span>
-                        </a>
-                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
-                    </div>
 
 
 
-            </div> 
+                </div> 
         </header>
-    <img class ="error" src="photos/checkout.jpg">
+        <img class ="error" src="photos/checkout.jpg">
 
-    <script src="javaScript.js"></script>
-</body>
+        <script src="javaScript.js"></script>
+    </body>
 </html>
