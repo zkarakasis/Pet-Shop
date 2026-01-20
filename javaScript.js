@@ -84,5 +84,30 @@
                     }
                 });
             });
-        
+
+
+
+
+            const holders = document.querySelectorAll(".image-holder");
+            holders.forEach(holder => {
+                const dropdetails = holder.querySelector(".dropdetails");
+                let hovering = false;
+                
+                holder.addEventListener("mouseenter", function(){
+                    hovering = true;
+                });
+                
+                holder.addEventListener("mouseleave", function(){
+                    hovering = false;
+                });
+                
+                holder.addEventListener("mousemove", function(moving){
+                    if(hovering){
+                        dropdetails.style.left = (moving.clientX + 10) + "px";
+                        dropdetails.style.top = (moving.clientY + 10) + "px";
+                    }
+                });
+            });
+         
+
     
