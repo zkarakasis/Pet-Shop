@@ -54,12 +54,45 @@
 
             //searchbox  (Need to create results with every single item/ pet we are selling, the ones bellow are placeholders)
             const pages = [
-                { name: "Dog", page: "dogs.html" },
-                { name: "Cat", page: "cats.html" },
-                { name: "Parrot", page: "parrot.html" },
-                { name: "Fish", page: "fish.html" },
-                { name: "Hamster", page: "hamster.html" },
-                { name: "Rabbit", page: "rabbit.html" }
+                { name: "Abyssinian", page: "abyssinian.html" },
+                { name: "American Shorthair", page: "american_shorthair.html" },
+                { name: "Exotic Shorthair", page: "exotic_shorthair.html" },
+                { name: "Maine Coon", page: "Maine_coon.html" },
+                { name: "Norwegian Forest Cat", page: "norwegian_forest-cat.html" },
+                { name: "Oriental Shorthair", page: "oriental_shorthair.html" },
+                { name: "Persian", page: "persian.html" },
+                { name: "Siamese", page: "siamese.html" },
+                { name: "Turkish Angora", page: "turkish_angora.html" },
+                { name: "Axolotl", page: "Axolotl.html" },
+                { name: "Bat-eared", page: "Bat-eared.html" },
+                { name: "Capybara", page: "capybara.html" },
+                { name: "Chameleon", page: "Chameleon.html" },
+                { name: "Chinchilla", page: "Chinchilla.html" },
+                { name: "fennec", page: "fennec.html" },
+                { name: "Kinkajou", page: "Kinkajou.html" },
+                { name: "Opossum", page: "Opossum.html" },
+                { name: "Porcupine", page: "Porcupine.html" },
+                { name: "Raccoon", page: "Raccoon.html" },
+                { name: "Spotted Genet", page: "SpottedGenet.html" },
+                { name: "Sugar Glider", page: "SugarGlider.html" },
+                { name: "Voyage Rucksack", page: "backpack.html" },
+                { name: "Ferplast Piano 6 Bird Cage", page: "birdcage.html" },
+                { name: "JR Birds Individual Cockatiel Food", page: "birdfood.html" },
+                { name: "Relax Radiator Bed", page: "catbed.html" },
+                { name: "Little Fish Plastic Cat Bowls", page: "catbowl.html" },
+                { name: "This Royal Canin Indoor", page: "catfood.html" },
+                { name: "Royal Canin Training Treats", page: "dogfood.html" },
+                { name: "Rubber Chicken Dog Toy", page: "dogtoy.html" },
+                { name: "TetraPro Energy Multi-Crisp", page: "fishfood.html" },
+                { name: "", page: ".html" },
+                { name: "", page: ".html" },
+                { name: "", page: ".html" },
+                { name: "", page: ".html" },
+                { name: "", page: ".html" },
+                { name: "", page: ".html" },
+                { name: "", page: ".html" },
+                { name: "", page: ".html" },
+                { name: "", page: ".html" },
             ];
 
             const input = document.getElementById("searchInput");
@@ -84,30 +117,5 @@
                     }
                 });
             });
-
-
-
-
-            const holders = document.querySelectorAll(".image-holder");
-            holders.forEach(holder => {
-                const dropdetails = holder.querySelector(".dropdetails");
-                let hovering = false;
-                
-                holder.addEventListener("mouseenter", function(){
-                    hovering = true;
-                });
-                
-                holder.addEventListener("mouseleave", function(){
-                    hovering = false;
-                });
-                
-                holder.addEventListener("mousemove", function(moving){
-                    if(hovering){
-                        dropdetails.style.left = (moving.clientX + 10) + "px";
-                        dropdetails.style.top = (moving.clientY + 10) + "px";
-                    }
-                });
-            });
-         
-
+        
     
