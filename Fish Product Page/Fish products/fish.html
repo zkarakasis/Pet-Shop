@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fish </title>
+    <link rel="stylesheet" href="/Fish products/styles.css">
+    <style>
+            .banner img{
+                width:95%;
+                height: auto;
+                display:block;
+                margin:auto;
+
+            }
+            .products-section {
+                display: flex;
+                gap: 40px;
+                justify-content: center;
+                padding: 100px;
+                flex-wrap: wrap;
+                padding-bottom: 80px;
+                width: 70%;
+                margin: auto;
+            }
+            .new-arrivals, .best-sellers {
+                flex: 1 1 400px;
+                background-color: #FFEED6;
+                padding: 20px;
+                border-radius: 20px;
+            }    
+            .products{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 60px 40px;
+                justify-items: center;
+
+            }
+            .product-card{
+                width: 100%;
+                max-width: 320px;
+                height: 500px;
+                background-color: rgb(233, 187, 62);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                color: #0c0b0b;
+                cursor:pointer;
+                overflow: hidden;
+                
+            }
+            .section-title {
+                text-align: center;
+                color: #E2852E;
+                margin-bottom: 80px;
+            }
+            .footer-top{
+                background-color: #ABE0F0;
+                font-size: large;
+                text-align: center;
+                border-top:solid 3px #E2852E;
+                
+            }
+            .footer-bottom{
+                background-color: #FFEE91;
+                font-size: large;
+                text-align: center;
+                padding: 20px;
+
+                
+            }
+            .footer-top img {
+                height: 100px;
+            }
+            .image-holder{
+                display: inline-block;
+                transition: opacity 0.5s ease;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                overflow: visible;
+
+            }   
+            .image-holder img{
+                display:block;
+                width:100%;
+                height:100%;
+            }
+            .image-first{
+                
+                width: 100%;
+                height: 100%;
+                display: block;
+                opacity: 1;
+                border-radius: 10px;
+            }
+            .image-second{
+                position:absolute;
+                top:0;
+                overflow: auto;
+                height: 100%;
+                width: 100%;
+                display: block;
+                opacity: 0;
+                border-radius: 10px;
+                z-index: 2;
+            }
+            .dropdetails{
+                opacity:0;
+                position:fixed;
+                top: 50%;
+                left:70px;
+                overflow:visible;
+                background-color:#E2852E ;
+                border-radius: 10px;
+                width:500px;
+                padding: 5px;
+                border:groove black;
+                pointer-events: none;
+                z-index: 100000;
+            }
+            .image-holder:hover .image-first {
+                opacity: 0;
+            }
+             .image-holder:hover .image-second{ 
+                opacity: 1;   
+            }
+            .image-holder:hover .dropdetails{
+                opacity:1;
+            }
+            .product-title {
+                position: absolute;
+                top: 10px;
+                left:10%;
+                color: #E2852E;
+                background-color: #ABE0F0;
+                padding: 8px 16px;
+                border-radius: 8px;
+                margin: 0;
+                font-size: 18px;
+                z-index: 3;
+                text-align: center;
+                font-weight: bold;
+            }
+            .footer{
+                background-color: #E2852E;
+                color: #000;
+                padding: 40px 20px;
+                margin-top: 60px;
+                width: 100%;
+                clear: both;
+            }
+            .footer-container{
+                display: flex;
+                justify-content: flex-start;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 40px;
+            }
+            .footer-logo img{
+                width: 80px;
+                margin-bottom: 10px;
+            }
+            .footer h4{
+                margin-bottom: 10px;
+            }
+            .footer p{
+                margin: 5px 0;
+                font-size: 14px;
+            }
+
+            /* Footer (My Version) */
+            .footer{
+                background-color: #E2852E;
+                color: #000;
+                padding: 40px 20px;
+                margin-top: 60px;
+                width: 100%;
+                clear: both;
+                bottom: 0%;
+            }
+
+            .footer-container{
+                display: flex;
+                justify-content: flex-start;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 40px;
+
+            }
+
+            .footer-logo img{
+                width: 80px;
+                margin-bottom: 10px;
+            }
+
+            .footer h4{
+                margin-bottom: 10px;
+            }
+
+            .footer p{
+                margin: 5px 0;
+                font-size: 14px;
+            }
+
+            /* Fix for the footer not being at the full bottom */
+
+            .page-wrapper{
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            main{
+                flex: 1;
+            }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+            <div class="header-left">
+                <img src="../photos/logo.png" alt="logo" height="100" >
+                <h1> Pup Fiction </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <div class="dropdown">
+                            <a class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="dogs.html">Dogs</a>
+                                <a href="cats.html">Cats</a>
+                                <a href="fish.html">Fish</a>
+                                <a href="birds.html">Birds</a>
+                                <a href="other.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="products.html">Products</a>
+                        <a href="quiz.html">Quiz</a>
+                        <a href="aboutUs.html">About Us</a>
+                    </nav>
+
+                    
+                    <div class="cart-container">
+                        <a href="checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
+                    </div>
+            </div> 
+    </header>
+
+    <!-- Main section -->
+        <main>
+            <!-- Product section -->
+            <div class="products-section">
+                <section class="new-arrivals">
+                    <h2 class="section-title"> Fish </h2>
+                    <div class="products">
+                        <!-- Goldfish -->
+                        <div class="product-card">
+
+                            <div class="image-holder">
+                                <h3 class="product-title"> Goldfish </h3>
+                                <img src="../photos/Goldfish.jpg" alt="Goldfish">
+                                <a href="../Fish Gallery/goldfish.html"><img src="../photos_slides/Goldfish_s2.jpg" class="image-second" alt="Goldfish"></a>
+                                <div class="dropdetails">
+                                    Friendly and easy to care for, goldfish are ideal for beginners and thrive in clean freshwater aquariums.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Betta fish-->
+                        <div class="product-card">
+
+                            <div class="image-holder">
+                                <h3 class="product-title"> Betta fish </h3>
+                                <img src="../photos/Betta.jpg" alt="Betta fish">
+                                <a href="../Fish Gallery/Betta.html"><img src="../photos_slides/Betta_s2.jpg" class="image-second" alt="Betta"></a>
+                                <div class="dropdetails">
+                                   Known for their vibrant colors and flowing fins, bettas are hardy fish that do best alone in calm tanks.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Guppy fish -->
+                        <div class="product-card">
+
+                            <div class="image-holder">
+                                <h3 class="product-title"> Guppy fish </h3>
+                                <img src="../photos/Guppy.jpg" alt="Maine coon">
+                                <a href="../Fish Gallery/Guppy.html"><img src="../photos_slides/Guppy_s2.jpg" class="image-second" alt="Guppy"></a>
+                                <div class="dropdetails">
+                                   Small, colorful, and active, guppies are peaceful fish that are easy to maintain and great for community tanks.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Angel fish -->
+                        <div class="product-card">
+
+                            <div class="image-holder">
+                                <h3 class="product-title"> Angel fish </h3>
+                                <img src="../photos/Angelfish.jpg" alt="Angelfish">
+                                <a href="../Fish Gallery/angelfish.html"><img src="../photos_slides/Angelfish_s2.jpg" class="image-second" alt="Angelfish"></a>
+                                <div class="dropdetails">
+                                   Elegant and graceful, angelfish add beauty to larger freshwater aquariums and enjoy well-planted environments.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Neon tetra -->
+                        <div class="product-card">
+
+                            <div class="image-holder">
+                                <h3 class="product-title"> Neon tetra </h3>
+                                <img src="../photos/Tetra.jpg" alt="Tetra">
+                                <a href="../Fish Gallery/Tetra.html"><img src="../photos_slides/Tetra_s2.jpg" class="image-second" alt="Tetra"></a>
+                                <div class="dropdetails">
+                                  Bright and energetic, neon tetras are schooling fish that look stunning when kept in groups.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Koi fish-->
+                        <div class="product-card">
+
+                            <div class="image-holder">
+                                <h3 class="product-title"> Koi fish </h3>
+                                <img src="../photos/Koi.jpg" alt="Koi">
+                                <a href="../Fish Gallery/koi.html"><img src="../photos_slides/Koi_s2.jpg" class="image-second" alt="Koi"></a>
+                                <div class="dropdetails">
+                                    Large, colorful, and long-living, koi fish are prized ornamental fish that thrive in outdoor ponds and symbolize beauty and good fortune.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+<!-- Javascript for the description box -->
+<script>
+    const holders = document.querySelectorAll(".image-holder");
+            holders.forEach(holder => {
+                const dropdetails = holder.querySelector(".dropdetails");
+                let hovering = false;
+                
+                holder.addEventListener("mouseenter", function(){
+                    hovering = true;
+                });
+                
+                holder.addEventListener("mouseleave", function(){
+                    hovering = false;
+                });
+                
+                holder.addEventListener("mousemove", function(moving){
+                    if(hovering){
+                        dropdetails.style.left = (moving.clientX + 10) + "px";
+                        dropdetails.style.top = (moving.clientY + 10) + "px";
+                    }
+                });
+            });
+</script>
+</body>
+    <!-- Footer section -->
+<footer class="footer">
+        <div class="footer-container">
+
+                <div class="footer-logo">
+                    <img src="../photos/logo.png" alt="logo">
+                </div>
+            
+
+            <div class="footer-about">
+                <h4> About us </h4>
+                <p>
+                    We are a pet store dedicated to providing healthy pets,
+                quality food, and accessories for your lovely companions.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h4> Contact information: </h4>
+                <h4> Petstoreinfo@gmail.com </h4>
+                <h4> Location: Thessaloniki, Greece </h4>
+            </div>
+            
+            </div>
+    </footer>
+</body>
+</html>
