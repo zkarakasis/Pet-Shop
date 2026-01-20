@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Birman </title>
+    <link rel="stylesheet" href="/Cat products/styles1.css">
+    <style>
+            
+            /* For the image slider */
+
+            .product-image{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .slider{
+                position: relative;
+                width: 400px;
+                height: 500px;
+                overflow: hidden;
+                border-radius: 20px;
+            }
+
+            .Slide{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .Slide.active{
+                opacity: 1;
+            }
+            .prev, .next{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                border: none;
+                font-size: 22px;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+
+            .prev{
+                left: 10px;
+            }
+
+            .next{
+                right: 10px;
+            }
+
+            .prev:hover, .next:hover{
+                background-color: #fb9700;
+            }
+
+            /* For the hidden description */
+            
+            .hidden-text{
+                display: none;
+            }
+
+            .see-more-button{
+                margin-top: 10px;
+                background-color:  #fb9700;
+                color: white;
+                border: none;
+                padding: 6px 14px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+            .see-more-button:hover{
+                background-color: #E2852E;
+            }
+
+            /* Product page Css */
+            .product-page{
+                display: flex;
+                gap: 40px;
+                max-width: 1100px;
+                margin: 60px auto;
+                padding: 20px;
+                align-items: flex-start;
+            }
+
+            .product-info h1{
+                margin-top: auto;
+            }
+
+            .product-image img{
+                width: 400px;
+                height: auto;
+                border-radius: 12px;
+                border: 3px solid #ddd;
+                display: block;
+            }
+
+
+            .price{
+                font-size: 20px;
+                color: #000;
+                font-weight: bold;
+            }
+
+            .add-to-cart{
+                padding: 12px 24px;
+                font-size: 16px;
+                background-color: #E2852E;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .add-to-cart:hover{
+                background-color: #c96f1f;
+                transform: scale(1.05);
+            }
+            
+            /* Footer (My Version) */
+            .footer{
+                background-color: #E2852E;
+                color: #000;
+                padding: 40px 20px;
+                margin-top: 60px;
+                width: 100%;
+                clear: both;
+            }
+
+            .footer-container{
+                display: flex;
+                justify-content: flex-start;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 40px;
+
+            }
+
+            .footer-logo img{
+                width: 80px;
+                margin-bottom: 10px;
+            }
+
+            .footer h4{
+                margin-bottom: 10px;
+            }
+
+            .footer p{
+                margin: 5px 0;
+                font-size: 14px;
+            }
+
+            /* Fix for the footer not being at the full bottom */
+
+            .page-wrapper{
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            main{
+                flex: 1;
+            }
+    </style>
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header section -->
+    <header>
+            <div class="header-left">
+                <img src="/photos/logo.png" alt="logo" height="100" >
+                <h1>Pup Fiction </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <div class="dropdown">
+                            <a class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="dogs.html">Dogs</a>
+                                <a href="cats.html">Cats</a>
+                                <a href="fish.html">Fish</a>
+                                <a href="birds.html">Birds</a>
+                                <a href="other.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="products.html">Products</a>
+                        <a href="quiz.html">Quiz</a>
+                        <a href="aboutUs.html">About Us</a>
+                    </nav>
+
+                    
+                    <div class="cart-container">
+                        <a href="checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
+                    </div>
+            </div> 
+    </header>
+    <!-- Main section -->
+    <main class="product-page">
+        <!-- Product Image -->
+        <section class="product-image">
+            <div class="slider">
+                <img src="/photos/birman.jpg" class="Slide active" alt="Slide 1">
+                <img src="/photos_sliders/birman_s2.jpg" class="Slide" alt="Slide 2">
+                <img src="photos_sliders/birman_s3.jpg" class="Slide" alt="Slide 2">
+
+                <button class="prev" onclick="changeSlide(-1)"> prev </button>
+                <button class="next" onclick="changeSlide(1)"> next </button>
+            </div>
+        </section>
+
+        <section class="product-info">
+            <h1> Birman </h1>
+            <!-- Price -->
+            <p class="price">
+                <strong> Price: </strong> 830€
+            </p>
+            <!-- Availability -->
+            <p class="availability">
+                <strong> Availability: </strong> In stock
+            </p>
+            <!-- Add-to-cart -->
+            <button class="add-to-cart" onclick="addToCart(830)"> Add to cart </button>
+            <!-- Description -->
+            <p class="description">
+                  A calm and affectionate cat with beautiful blue eyes and silky fur. Birmans are gentle, friendly, and excellent indoor companions.
+                <!-- Hidden info (only active when *see full description* button is pressed) -->
+                <div class="hidden-text" id="moreText">
+                    <ul>
+                        <li> Medium-long coat with color points</li>
+                        <li> Gentle, affectionate, and people-oriented </li>
+                        <li> Striking blue eyes </li>
+                    </ul>
+                </div>
+            </p>
+            <button class="see-more-button" onclick="toggleDescription()"> See more </button>
+        </section>
+    </main>
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+
+                <div class="footer-logo">
+                    <img src="/photos/logo.png" alt="logo">
+                </div>
+            
+
+            <div class="footer-about">
+                <h4> About us </h4>
+                <p>
+                    We are a pet store dedicated to providing healthy pets,
+                quality food, and accessories for your lovely companions.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h4> Contact information: </h4>
+                <h4> Petstoreinfo@gmail.com </h4>
+                <h4> Location: Thessaloniki, Greece </h4>
+            </div>
+            
+            </div>
+    </footer>
+    </div>
+</body>
+<script src="javaScript.js"></script>
+<!-- Javascript for the slider -->
+ <script>
+    let currentSlide = 0;
+    const Slide = document.querySelectorAll(".Slide")
+
+    function changeSlide(direction) {
+        Slide[currentSlide].classList.remove("active");
+
+        currentSlide += direction;
+
+        if (currentSlide < 0) {
+            currentSlide = Slide.length -1;
+        }
+
+        if (currentSlide >= Slide.length) {
+            currentSlide = 0;
+        }
+
+        Slide[currentSlide].classList.add("active");
+    }
+ </script>
+ <!-- For the hidden details  -->
+  <script>
+    function toggleDescription() {
+        const moreText = document.getElementById("moreText");
+        const button = document.querySelector(".see-more-button");
+
+        if (window.getComputedStyle(moreText).display === "none") {
+            moreText.style.display = "block";
+            button.textContent = "See less";
+        } else{
+            moreText.style.display = "none";
+            button.textContent = "See more"
+        }
+    }
+  </script>
+</html>
