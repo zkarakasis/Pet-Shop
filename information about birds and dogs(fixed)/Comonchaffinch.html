@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Common chaffinch </title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #ABE0F0;
+                border: 2px solid #E2852E;
+                border-top: transparent;
+                border-radius:0px 0px 15px 15px;
+                padding: 10px 0;
+                min-width: 100%;
+                
+            }   
+            .dropdown-menu a {
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #E2852E;
+                font-weight: bold;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            } 
+
+            /* For the image slider */
+
+            .product-image{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .slider{
+                position: relative;
+                width: 400px;
+                height: 500px;
+                overflow: hidden;
+                border-radius: 20px;
+            }
+
+            .Slide{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .Slide.active{
+                opacity: 1;
+            }
+            .prev, .next{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                border: none;
+                font-size: 22px;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+
+            .prev{
+                left: 10px;
+            }
+
+            .next{
+                right: 10px;
+            }
+
+            .prev:hover, .next:hover{
+                background-color: #fb9700;
+            }
+
+            /* For the hidden description */
+            
+            .hidden-text{
+                display: none;
+            }
+
+            .see-more-button{
+                margin-top: 10px;
+                background-color:  #fb9700;
+                color: white;
+                border: none;
+                padding: 6px 14px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+            .see-more-button:hover{
+                background-color: #E2852E;
+            }
+
+            .add-to-cart{
+                padding: 12px 24px;
+                font-size: 16px;
+                background-color: #E2852E;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .add-to-cart:hover{
+                background-color: #c96f1f;
+                transform: scale(1.05);
+            }
+            
+            /* Product page Css */
+            .product-page{
+                display: flex;
+                gap: 40px;
+                max-width: 1100px;
+                margin: 60px auto;
+                padding: 20px;
+                align-items: flex-start;
+            }
+
+            .product-info h1{
+                margin-top: auto;
+            }
+
+            .product-image img{
+                width: 400px;
+                height: auto;
+                border-radius: 12px;
+                border: 3px solid #ddd;
+                display: block;
+            }
+
+
+            .price{
+                font-size: 20px;
+                color: #000;
+                font-weight: bold;
+            }
+
+            .add-to-cart{
+                padding: 12px 24px;
+                font-size: 16px;
+                background-color: #E2852E;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .add-to-cart:hover{
+                background-color: #c96f1f;
+                transform: scale(1.05);
+            }
+
+            /* Footer (My Version) */
+            .footer{
+                background-color: #E2852E;
+                color: #000;
+                padding: 40px 20px;
+                margin-top: 60px;
+                width: 100%;
+                clear: both;
+                position:fixed;
+                bottom: 0%;
+            }
+
+            .footer-container{
+                display: flex;
+                justify-content: flex-start;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 40px;
+
+            }
+
+            .footer-logo img{
+                width: 80px;
+                margin-bottom: 10px;
+            }
+
+            .footer h4{
+                margin-bottom: 10px;
+            }
+
+            .footer p{
+                margin: 5px 0;
+                font-size: 14px;
+            }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header section -->
+         <header>
+            <div class="header-left">
+                <img src="../photos/logo.png" alt="logo" height="100" >
+                <h1>Pup Fiction </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <div class="dropdown">
+                            <a class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="dogs.html">Dogs</a>
+                                <a href="cats.html">Cats</a>
+                                <a href="fish.html">Fish</a>
+                                <a href="birds.html">Birds</a>
+                                <a href="other.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="products.html">Products</a>
+                        <a href="quiz.html">Quiz</a>
+                        <a href="aboutUs.html">About Us</a>
+                    </nav>
+
+                    
+                    <div class="cart-container">
+                        <a href="checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
+                    </div>
+            </div> 
+        </header>
+    <!-- Main section -->
+    <main class="product-page">
+        <!-- Product Image -->
+        <section class="product-image">
+            <div class="slider">
+                <img src="../phottoschrisostomos/Commonchaffinch.jpg" class="Slide active" alt="Slide 1">
+                <img src="../phottoschrisostomos/Commonchaffinch2.jpg" class="Slide" alt="Slide 2">
+                <img src="../phottoschrisostomos/Commonchaffinch.jpg" class="Slide" alt="Slide 2">
+
+                <button class="prev" onclick="changeSlide(-1)"> prev </button>
+                <button class="next" onclick="changeSlide(1)"> next </button>
+            </div>
+        </section>
+
+        <section class="product-info">
+            <h1> Common chaffinch </h1>
+            <!-- Price -->
+            <p class="price">
+                <strong> Price: </strong> 70€
+            </p>
+            <!-- Availability -->
+            <p class="availability">
+                <strong> Availability: </strong> In stock
+            </p>
+            <!-- Add-to-cart -->
+             <button class="add-to-cart" onclick="addToCart(70)"> Add to cart </button>
+            <!-- Description -->
+            <p class="decription">
+                The Eurasian chaffinch, common chaffinch, or simply the chaffinch (Fringilla coelebs) is a common and widespread small passerine bird in the finch family. The male is brightly coloured with a blue-grey cap and rust-red underparts. The female is more subdued in colouring, but both sexes have two contrasting white wing bars and white sides to the tail. The male bird has a strong voice and sings from exposed perches to attract a mate. The chaffinch breeds in much of Europe, across the Palearctic to Siberia. The female builds a nest with a deep cup in the fork of a tree. The clutch is typically four or five eggs, which hatch in about 13 days. The chicks fledge in around 14 days, but are fed by both adults for several weeks after leaving the nest. Outside the breeding season, chaffinches form flocks in open countryside and forage for seeds on the ground. During the breeding season, they forage on trees for invertebrates, especially caterpillars, and feed these to their young. They are partial migrants; birds breeding in warmer regions are sedentary, while those breeding in the colder northern areas of their range winter further south. 
+                <div class="hidden-text" id="moreText">
+                    The Eurasian chaffinch is about 14.5 cm (5.7 in) long, with a wingspan of 24.5–28.5 cm (9.6–11.2 in) and a weight of 18–29 g (0.63–1.02 oz).[16] The adult male of the nominate subspecies has a black forehead and a blue-grey crown, nape and upper mantle. The rump is a light olive-green; the lower mantle and scapulars form a brown saddle. The side of head, throat and breast are a dull rust-red merging to a pale creamy-pink on the belly. The central pair of tail feathers are dark grey with a black shaft streak. The rest of the tail is black apart from the two outer feathers on each side which have white wedges.[17] Each wing has a contrasting white panel on the coverts and a buff-white bar on the secondaries and inner primaries.[16] The flight feathers are black with white on the basal portions of the vanes. The secondaries and inner primaries have pale yellow fringes on the outer web whereas the outer primaries have a white outer edge.
+                </div>
+                <button class="see-more-button" onclick="toggleDescription()"> See more </button>
+            </p>
+        </section>
+    </main>
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+
+                <div class="footer-logo">
+                    <img src="../photos/logo.png" alt="logo">
+                </div>
+            
+
+            <div class="footer-about">
+                <h4> About us </h4>
+                <p>
+                    We are a pet store dedicated to providing healthy pets,
+                quality food, and accessories for your lovely companions.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h4> Contact information: </h4>
+                <h4> Petstoreinfo@gmail.com </h4>
+                <h4> Location: Thessaloniki, Greece </h4>
+            </div>
+            
+            </div>
+    </footer>
+    </div>
+    
+</body>
+
+<!-- Javascript for the slider -->
+ <script>
+    let currentSlide = 0;
+    const Slide = document.querySelectorAll(".Slide")
+
+    function changeSlide(direction) {
+        Slide[currentSlide].classList.remove("active");
+
+        currentSlide += direction;
+
+        if (currentSlide < 0) {
+            currentSlide = Slide.length -1;
+        }
+
+        if (currentSlide >= Slide.length) {
+            currentSlide = 0;
+        }
+
+        Slide[currentSlide].classList.add("active");
+    }
+
+
+     function toggleDescription() {
+        const moreText = document.getElementById("moreText");
+        const button = document.querySelector(".see-more-button");
+
+        if (window.getComputedStyle(moreText).display === "none") {
+            moreText.style.display = "block";
+            button.textContent = "See less";
+        } else{
+            moreText.style.display = "none";
+            button.textContent = "See more"
+        }
+    }
+
+ </script>
+    <script src="../javaScript.js"></script>
+</html>

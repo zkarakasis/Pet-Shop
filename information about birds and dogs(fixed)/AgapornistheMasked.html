@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Agapornis the Masked </title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #ABE0F0;
+                border: 2px solid #E2852E;
+                border-top: transparent;
+                border-radius:0px 0px 15px 15px;
+                padding: 10px 0;
+                min-width: 100%;
+                
+            }   
+            .dropdown-menu a {
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #E2852E;
+                font-weight: bold;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            } 
+
+            /* For the image slider */
+
+            .product-image{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .slider{
+                position: relative;
+                width: 400px;
+                height: 500px;
+                overflow: hidden;
+                border-radius: 20px;
+            }
+
+            .Slide{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .Slide.active{
+                opacity: 1;
+            }
+            .prev, .next{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                border: none;
+                font-size: 22px;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+
+            .prev{
+                left: 10px;
+            }
+
+            .next{
+                right: 10px;
+            }
+
+            .prev:hover, .next:hover{
+                background-color: #fb9700;
+            }
+
+            /* For the hidden description */
+            
+            .hidden-text{
+                display: none;
+            }
+
+            .see-more-button{
+                margin-top: 10px;
+                background-color:  #fb9700;
+                color: white;
+                border: none;
+                padding: 6px 14px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+            .see-more-button:hover{
+                background-color: #E2852E;
+            }
+
+            .add-to-cart{
+                padding: 12px 24px;
+                font-size: 16px;
+                background-color: #E2852E;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .add-to-cart:hover{
+                background-color: #c96f1f;
+                transform: scale(1.05);
+            }
+            
+            /* Product page Css */
+            .product-page{
+                display: flex;
+                gap: 40px;
+                max-width: 1100px;
+                margin: 60px auto;
+                padding: 20px;
+                align-items: flex-start;
+            }
+
+            .product-info h1{
+                margin-top: auto;
+            }
+
+            .product-image img{
+                width: 400px;
+                height: auto;
+                border-radius: 12px;
+                border: 3px solid #ddd;
+                display: block;
+            }
+
+
+            .price{
+                font-size: 20px;
+                color: #000;
+                font-weight: bold;
+            }
+
+            .add-to-cart{
+                padding: 12px 24px;
+                font-size: 16px;
+                background-color: #E2852E;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .add-to-cart:hover{
+                background-color: #c96f1f;
+                transform: scale(1.05);
+            }
+
+            /* Footer (My Version) */
+            .footer{
+                background-color: #E2852E;
+                color: #000;
+                padding: 40px 20px;
+                margin-top: 60px;
+                width: 100%;
+                clear: both;
+                position:fixed;
+                bottom: 0%;
+            }
+
+            .footer-container{
+                display: flex;
+                justify-content: flex-start;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 40px;
+
+            }
+
+            .footer-logo img{
+                width: 80px;
+                margin-bottom: 10px;
+            }
+
+            .footer h4{
+                margin-bottom: 10px;
+            }
+
+            .footer p{
+                margin: 5px 0;
+                font-size: 14px;
+            }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header section -->
+         <header>
+            <div class="header-left">
+                <img src="../photos/logo.png" alt="logo" height="100" >
+                <h1>Pup Fiction </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <div class="dropdown">
+                            <a class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="dogs.html">Dogs</a>
+                                <a href="cats.html">Cats</a>
+                                <a href="fish.html">Fish</a>
+                                <a href="birds.html">Birds</a>
+                                <a href="other.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="products.html">Products</a>
+                        <a href="quiz.html">Quiz</a>
+                        <a href="aboutUs.html">About Us</a>
+                    </nav>
+
+                    
+                    <div class="cart-container">
+                        <a href="checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
+                    </div>
+            </div> 
+        </header>
+    <!-- Main section -->
+    <main class="product-page">
+        <!-- Product Image -->
+        <section class="product-image">
+            <div class="slider">
+                <img src="../phottoschrisostomos/agapo1.jpg" class="Slide active" alt="Slide 1">
+                <img src="../phottoschrisostomos/agapo2.jpg" class="Slide" alt="Slide 2">
+                <img src="../phottoschrisostomos/agapo1.jpg" class="Slide" alt="Slide 2">
+
+                <button class="prev" onclick="changeSlide(-1)"> prev </button>
+                <button class="next" onclick="changeSlide(1)"> next </button>
+            </div>
+        </section>
+
+        <section class="product-info">
+            <h1> Agapornis the Masked  </h1>
+            <!-- Price -->
+            <p class="price">
+                <strong> Price: </strong> 90€
+            </p>
+            <!-- Availability -->
+            <p class="availability">
+                <strong> Availability: </strong> In stock
+            </p>
+            <!-- Add-to-cart -->
+             <button class="add-to-cart" onclick="addToCart(90)"> Add to cart </button>
+            <!-- Description -->
+            <p class="decription">
+                The yellow-collared lovebird (Agapornis personatus), also called masked lovebird, black-masked lovebird or eye ring lovebird, is a monotypic species of bird of the lovebird genus in the parrot family Psittaculidae. They are native to Arusha Region of Tanzania and have been introduced to Burundi and Kenya.[1] Although they have been observed in the wild in Puerto Rico, they are probably the result of escaped pets, and no reproduction has been recorded.[3] They have also been observed in Arizona.
+                <div class="hidden-text" id="moreText">
+                    The yellow-collared lovebird is a mainly green small parrot about 14.5 cm (5.5 in) long. Its upperparts are a darker green than its lower surfaces. Its head is black, and it has a bright red beak with white above it and white eyerings. Yellow on the breast is continuous with a yellow collar and an expansion of yellow over the nape of the neck. Male and female have an identical external appearance.                
+                </div>
+                <button class="see-more-button" onclick="toggleDescription()"> See more </button>
+            </p>
+        </section>
+    </main>
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+
+                <div class="footer-logo">
+                    <img src="../photos/logo.png" alt="logo">
+                </div>
+            
+
+            <div class="footer-about">
+                <h4> About us </h4>
+                <p>
+                    We are a pet store dedicated to providing healthy pets,
+                quality food, and accessories for your lovely companions.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h4> Contact information: </h4>
+                <h4> Petstoreinfo@gmail.com </h4>
+                <h4> Location: Thessaloniki, Greece </h4>
+            </div>
+            
+            </div>
+    </footer>
+    </div>
+    
+</body>
+
+<!-- Javascript for the slider -->
+ <script>
+    let currentSlide = 0;
+    const Slide = document.querySelectorAll(".Slide")
+
+    function changeSlide(direction) {
+        Slide[currentSlide].classList.remove("active");
+
+        currentSlide += direction;
+
+        if (currentSlide < 0) {
+            currentSlide = Slide.length -1;
+        }
+
+        if (currentSlide >= Slide.length) {
+            currentSlide = 0;
+        }
+
+        Slide[currentSlide].classList.add("active");
+    }
+
+
+     function toggleDescription() {
+        const moreText = document.getElementById("moreText");
+        const button = document.querySelector(".see-more-button");
+
+        if (window.getComputedStyle(moreText).display === "none") {
+            moreText.style.display = "block";
+            button.textContent = "See less";
+        } else{
+            moreText.style.display = "none";
+            button.textContent = "See more"
+        }
+    }
+
+ </script>
+    <script src="../javaScript.js"></script>
+</html>
