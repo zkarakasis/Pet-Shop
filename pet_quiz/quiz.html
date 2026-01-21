@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quiz_style.css">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Pet Choosing Quiz</title>
+</head>
+<body>
+
+      <header>
+            <div class="header-left">
+                <img src="photos/logo.png" alt="logo" height="100" >
+                <h1>Pup Fiction </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="../index.html">Home</a>
+                        <div class="dropdown">
+                            <a class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="../dogs/dogs.html">Dogs</a>
+                                <a href="../Cat Product Page/Cat products/cats.html">Cats</a>
+                                <a href="../Fish Product Page/Fish products/fish.html">Fish</a>
+                                <a href="../birds/birds.html">Birds</a>
+                                <a href="../exotic animals/ExoticAnimals.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="../Products/products.html">Products</a>
+                        <a href="quiz.html">Quiz</a>
+                        <a href="../aboutUs.html">About Us</a>
+                    </nav>
+
+                    
+                    <div class="cart-container">
+                        <a href="../checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
+                    </div>
+            </div> 
+        </header>
+
+  <h1>Which Pet Is Right for You?</h1>
+<div class="quiz-wrapper">
+  <div class="box">
+  <form id="quiz">
+    
+        
+    <div class="question">
+
+        <p>1. How active are you?</p>
+
+        <input type="radio" id="activity-high" name="activity" value="high">
+        <label for="activity-high" class="btn">Very active</label>
+
+        <input type="radio" id="activity-low" name="activity" value="low">
+        <label for="activity-low" class="btn">Not very active</label>
+    </div>
+
+    <div class="question">
+
+        <p>2. How much time can you spend with a pet?</p>
+
+        <input type="radio" id="time-lots" name="time" value="lots">
+        <label for="time-lots" class="btn">A lot</label>
+
+        <input type="radio" id="time-little" name="time" value="little">
+        <label for="time-little" class="btn">Very little</label>
+    </div>
+
+    <div class="question">
+
+        <p>3. Do you live in an apartment?</p>
+
+        <input type="radio" id="home-yes" name="home" value="yes">
+        <label for="home-yes" class="btn">Yes</label>
+
+        <input type="radio" id="home-no" name="home" value="no">
+        <label for="home-no" class="btn">No</label>
+    </div>
+
+     <div class="question">
+
+        <p>4. Are you okay with cleaning up pet hair and litter?</p>
+
+        <input type="radio" id="cleanliness-yes" name="cleanliness" value="yes">
+        <label for="cleanliness-yes" class="btn">Yes</label>
+
+        <input type="radio" id="cleanliness-no" name="cleanliness" value="no">
+        <label for="cleanliness-no" class="btn">No</label>
+    </div> 
+    
+    <br>
+
+    <label class="btn" onclick="calculateResult()">See Result</label>
+
+  </form>
+
+  </div>
+  
+</div>
+<h2 id="result"></h2>
+
+
+ <footer class="footer">
+            <div class="footer-container">
+
+                    <div class="footer-logo">
+                        <img src="../photos/logo.png" alt="logo">
+                    </div>
+                
+
+                <div class="footer-about">
+                    <h4> About us </h4>
+                    <p>
+                        We are a pet store dedicated to providing healthy pets,
+                    quality food, and accessories for your lovely companions.
+                    </p>
+                </div>
+
+                <div class="footer-contact">
+                    <h4> Contact information: </h4>
+                    <h4> Petstoreinfo@gmail.com </h4>
+                    <h4> Location: Thessaloniki, Greece </h4>
+                </div>
+                
+                </div>
+        </footer>
+
+<script src="quiz_script.js"></script>
+
+</body>
+</html>
