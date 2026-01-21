@@ -83,7 +83,7 @@
                 { name: "This Royal Canin Indoor", page: "catfood.html" },
                 { name: "Royal Canin Training Treats", page: "dogfood.html" },
                 { name: "Rubber Chicken Dog Toy", page: "dogtoy.html" },
-                { name: "TetraPro Energy Multi-Crisp", page: "fishfood.html" },
+                { name: "TetraPro Energy Multi-Crisp", page: "/Products/fishfood.html" },
                 { name: "", page: ".html" },
                 { name: "", page: ".html" },
                 { name: "", page: ".html" },
@@ -118,4 +118,5 @@
                 });
             });
         
+
     
