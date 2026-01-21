@@ -253,42 +253,45 @@
          <header>
             <div class="header-left">
                 <img src="../photos/logo.png" alt="logo" height="100" >
-                <h1>Pet Shop </h1>
+                <h1>Pup Fiction </h1>
             </div>
 
             <div class="search-box">
-                <input type="text" placeholder="Search..." >
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
             </div>
 
             <div class="header-right">
                     <nav>
                         <a href="../index.html">Home</a>
                         <div class="dropdown">
-                            <a href="pets" class="dropdown-pets">Pets</a>
+                            <a class="dropdown-pets">Pets</a>
                             <div class="dropdown-menu">
-                                <a href="../dogs.html">Dogs</a>
-                                <a href="../cats.html">Cats</a>
-                                <a href="../fish.html">Fish</a>
-                                <a href="../birds.html">Birds</a>
-                                <a href="../other.html">Other</a>
+                                <a href="../dogs/dogs.html">Dogs</a>
+                                <a href="../Cat Product Page/Cat products/cats.html">Cats</a>
+                                <a href="../Fish Product Page/Fish products/fish.html">Fish</a>
+                                <a href="../birds/birds.html">Birds</a>
+                                <a href="ExoticAnimals.html">Other</a>
                             </div>
                         </div>
                         
                         
-                        <a href="../products.html">Products</a>
-                        <a href="../quiz.html">Quiz</a>
-                        <a href="../info.html">About Us</a>
+                        <a href="../Products/products.html">Products</a>
+                        <a href="../pet_quiz/quiz.html">Quiz</a>
+                        <a href="../aboutUs.html">About Us</a>
                     </nav>
 
-                    <div class="cart">
-                            🛒
+                    
+                    <div class="cart-container">
+                        <a href="../checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
                     </div>
             </div> 
         </header>
         <main>
-            <section class="banner">     
-                <img src="../photos/banner.png" alt="banner">
-            </section> 
+            
             <div class="products-section">
                 <section class="new-arrivals">
                     <h2 class="section-title">Exotic animals</h2>

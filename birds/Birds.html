@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Birds</title>
+        <style>
+            header{
+                z-index: 10000;
+            }
+           body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #EADFCE;
+                
+            }  
+            header {
+                background-color: #EADFCE;
+                color: #E2852E;
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+                border-bottom: 2px solid #E2852E;
+            }    
+            nav a{
+                margin-left: 35px;
+                color: #E2852E;
+                font-weight:bold;
+                text-decoration: none;
+                
+            }
+            nav a:hover {
+                color: #000;
+            }    
+            
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .search-box input {
+                padding: 8px 12px;
+                width: 450px;
+                border-radius: 5px;
+                border: 1px solid #aaa;
+                font-size: 14px;
+                background-color: #f3f3f3;
+                color: #666;
+                text-align: left;
+            }  
+            .header-right {
+                display: flex;
+                align-items: center;
+                gap:20px;
+                border: solid 2px #E2852E;
+                border-radius: 15px;
+                background-color: #ABE0F0;
+            }
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #ABE0F0;
+                border: 2px solid #E2852E;
+                border-top: transparent;
+                border-radius:0px 0px 15px 15px;
+                padding: 10px 0;
+                min-width: 100%;
+                
+            }   
+            .dropdown-menu a {
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #E2852E;
+                font-weight: bold;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            
+            }  
+            .banner img{
+                width:95%;
+                height: auto;
+                display:block;
+                margin:auto;
+
+            }
+            .products-section {
+                display: flex;
+                gap: 40px;
+                justify-content: center;
+                padding: 100px;
+                flex-wrap: wrap;
+                padding-bottom: 80px;
+                width: 70%;
+                margin: auto;
+            }
+            .new-arrivals, .best-sellers {
+                flex: 1 1 400px;
+                background-color: #FFEED6;
+                padding: 20px;
+                border-radius: 20px;
+            }    
+            .products{
+                display:flex;
+                justify-content: center;
+                gap: 130px;
+                flex-wrap: wrap;
+
+            }
+            .product-card{
+                width: 400px;
+                height: 500px;
+                background-color: rgb(233, 187, 62);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                color: #0c0b0b;
+                cursor:pointer;
+                overflow: hidden;
+                
+            }
+            .section-title {
+                text-align: center;
+                color: #E2852E;
+                margin-bottom: 80px;
+            }
+            .footer-top{
+                background-color: #ABE0F0;
+                font-size: large;
+                text-align: center;
+                border-top:solid 3px #E2852E;
+                
+            }
+            .footer-bottom{
+                background-color: #FFEE91;
+                font-size: large;
+                text-align: center;
+                padding: 20px;
+
+                
+            }
+            .footer-top img {
+                height: 100px;
+            }
+            .image-holder{
+                display: inline-block;
+                transition: opacity 0.5s ease;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                overflow: visible;
+
+            }   
+            .image-holder img{
+                display:block;
+                width:100%;
+                height:100%;
+            }
+            .image-first{
+                
+                width: 100%;
+                height: 100%;
+                display: block;
+                opacity: 1;
+                border-radius: 10px;
+            }
+            .image-second{
+                position:absolute;
+                top:0;
+                overflow: auto;
+                height: 100%;
+                width: 100%;
+                display: block;
+                opacity: 0;
+                border-radius: 10px;
+                z-index: 2;
+            }
+            .dropdetails{
+                opacity:0;
+                position:fixed;
+                top: 50%;
+                left:70px;
+                overflow:visible;
+                background-color:#E2852E ;
+                border-radius: 10px;
+                width:500px;
+                padding: 5px;
+                border:groove black;
+                pointer-events: none;
+                z-index: 100000;
+            }
+            .image-holder:hover .image-first {
+                opacity: 0;
+            }
+             .image-holder:hover .image-second{ 
+                opacity: 1;   
+            }
+            .image-holder:hover .dropdetails{
+                opacity:1;
+            }
+            .product-title {
+                position: absolute;
+                top: 10px;
+                left:10%;
+                color: #E2852E;
+                background-color: #ABE0F0;
+                padding: 8px 16px;
+                border-radius: 8px;
+                margin: 0;
+                font-size: 18px;
+                z-index: 3;
+                text-align: center;
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+    <body>
+         <header>
+            <div class="header-left">
+                <img src="https://github.com/zkarakasis/Pet-Shop/blob/master/photos/logo.png?raw=true" alt="logo" height="100" >
+                <h1>Pup Fiction </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="../index.html">Home</a>
+                        <div class="dropdown">
+                            <a class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="../dogs/dogs.html">Dogs</a>
+                                <a href="../Cat Product Page/Cat products/cats.html">Cats</a>
+                                <a href="../Fish Product Page/Fish products/fish.html">Fish</a>
+                                <a href="birds.html">Birds</a>
+                                <a href="../exotic animals/ExoticAnimals.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="../Products/products.html">Products</a>
+                        <a href="../pet_quiz/quiz.html">Quiz</a>
+                        <a href="../aboutUs.html">About Us</a>
+                    </nav>
+
+                    
+                    <div class="cart-container">
+                        <a href="../checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
+                    </div>
+            </div> 
+        </header>
+        <main>
+            
+            <div class="products-section">
+                <section class="new-arrivals">
+                    <h2 class="section-title">Birds</h2>  <!-- here is the title of the page -->
+                    <div class="products">
+                        <div class="product-card">
+                             
+                            <div class="image-holder">
+                                <h3 class="product-title">Budgies (European Parakeets)</h3><!--name of the animal -->
+                                <img src ="https://upload.wikimedia.org/wikipedia/commons/4/4a/Budgerigar-male-strzelecki-qld.jpg" class="image-first" alt="Budgies" ><!-- first picture -->
+                                <a href="Budgies.html" ><img src="https://www.seedzbox.co.uk/cdn/shop/articles/facts-about-budgies-budgerigar-answers-496320.jpg?v=1743572066&width=2048" class="image-second" alt="Budgies"></a><!-- the link for the animal with the second picture -->
+                                <div class="dropdetails"><!-- The dropdown details for the animal -->
+                                         Budgies (or Budgerigars) are one of the most popular domesticated parrot species and are particularly loved for their playful but at the 
+                                same time sweet character. They are particularly affectionate birds in their relationship with each other. </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Agapornis the Masked</h3>
+                                <img src ="https://puppy4u.gr/wp-content/uploads/2022/01/puppy4u-_black-masked-lovebird_green.jpg" class="image-first" alt="Agapornis the Masked" >
+                                <a href="AgapornistheMasked.html" ><img src="https://www.shutterstock.com/image-illustration/3d-rendered-agapornis-personata-var-600nw-277737704.jpg" class="image-second" alt="Agapornis the Masked"></a>
+                                <div class="dropdetails">Lovebirds are not nervous birds, but on the contrary they are energetic, active and full of curiosity.Lovebirds 
+                                live and breed in African nature depending on their species, on the edges of forests, in palm trees, in the savannah, in areas with acacias or river banks. They are generally 
+                                small birds with a length ranging from 12-17 centimeters, depending on the species. They weigh from 40-60 grams.</div>
+                                
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Crimson Red Rosella</h3>
+                                <img src ="https://upload.wikimedia.org/wikipedia/commons/0/01/Platycercus_elegans_Wilsons_Prom.jpg" class="image-first" alt="Crimson Red Rosella"  >
+                                <a href="CrimsonRedRosella.html" ><img src="https://lafeber.com/pet-birds/wp-content/uploads/2018/06/Crimson-Rosella-2.jpg" class="image-second" alt="Crimson Red Rosella"></a>
+                                <div class="dropdetails">The Red Rosella or Red Platykerk is an impressive medium-sized parrot originating from Australia, with the red color dominating 
+                                its colorful plumage. It is around 36 centimeters long and its wingspan is 19 centimeters. </div>
+
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Cockatiel</h3>
+                                <img src ="https://collections.museumsvictoria.com.au/content/media/23/1113423-small.jpg" class="image-first" alt="Cockatiel" >
+                                <a href="Cockatiel.html" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Cockatiel_3.jpg/960px-Cockatiel_3.jpg" class="image-second" alt="Cockatiel"></a>
+                                <div class="dropdetails">Cockatiel parrots are medium-sized parrots that reach 32 cm and are among the most beautiful and intelligent species.
+                                They are very playful birds, they like to have various toys inside and outside the cage.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Cannary</h3>
+                                <img src ="https://pethellas.gr/wp-content/uploads/2025/11/%CE%9A%CE%B1%CE%BD%CE%B1%CF%81%CE%AF%CE%BD%CE%B9%CE%B1-Timprado.jpg" class="image-first" alt="Cannary" >
+                                <a href="Canary.html" ><img src="https://lafeber.com/pet-birds/wp-content/uploads/2018/06/Canary.jpg" class="image-second" alt="Cannary"></a>
+                                <div class="dropdetails">The canary is a songbird of the ratite order and belongs to the finch family (Fringillidae). The official name of the domesticated 
+                                canary is sirinus canaria domesticus.Canaries were introduced to Spain in the 15th century after the Spanish conquest of the Canary Islands.</div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Common Haffinch</h3>
+                                <img src ="https://tropicisland.gr/wp-content/uploads/2021/02/Long-tail-finch.jpg" class="image-first" alt="Common Haffinch" >
+                                <a href="Comonchaffinch.html" ><img src="https://www.thainationalparks.com/img/species/2020/08/24/396972/common-chaffinch-w-1500.jpg" class="image-second" alt="Common Haffinch"></a>
+                                <div class="dropdetails">The chaffinch (Fringillia coelebs) commonly known as the chaffinch, also known by 
+                                the names of the chaffinch and the chaffinch; includes many genera and species that are 
+                                found almost all over the world, except Australia.</div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Parrot</h3>
+                                <img src ="https://www.rtl.de/img/1590959/1479489948/c16_9/1200/papagei-t9145.webp" class="image-first" alt="Parrot" >
+                                <a href="parrot.html" ><img src="https://pet-health-content-media.chewy.com/wp-content/uploads/2025/04/25190551/202504Hub-Bird-Parrot-SM-1-scaled-1.jpg" class="image-second" alt="Parrot"></a>
+                                <div class="dropdetails">The name parrot refers to various species of mostly arboreal birds that form the order Psittaciformes , which is divided 
+                                into 3 families: Cockatoos (Cacatuidae), Psittacidae (Psittacidae) and Strigopidae.</div>
+                            </div>
+                        </div>
+                </section>
+            </div>   
+        </main>
+             <footer>
+                <div class = "footer-top"> 
+                    <img src="https://github.com/zkarakasis/Pet-Shop/blob/master/photos/logo.png?raw=true">
+                </div>
+                <div class = "footer-bottom">
+                    <a href="../aboutUs.html" >About us</a>  
+                </div>
+            </footer>  
+    </body>
+    <script>
+            const holders = document.querySelectorAll(".image-holder");
+            holders.forEach(holder => {
+                const dropdetails = holder.querySelector(".dropdetails");
+                let hovering = false;
+                
+                holder.addEventListener("mouseenter", function(){
+                    hovering = true;
+                });
+                
+                holder.addEventListener("mouseleave", function(){
+                    hovering = false;
+                });
+                
+                holder.addEventListener("mousemove", function(moving){
+                    if(hovering){
+                        dropdetails.style.left = (moving.clientX + 10) + "px";
+                        dropdetails.style.top = (moving.clientY + 10) + "px";
+                    }
+                });
+            });
+     </script>
+    
+
+</html>

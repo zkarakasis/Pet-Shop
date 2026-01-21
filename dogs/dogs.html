@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Dogs</title>
+        <style>
+            header{
+                z-index: 10000;
+            }
+           body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #EADFCE;
+                
+            }  
+            header {
+                background-color: #EADFCE;
+                color: #E2852E;
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+                border-bottom: 2px solid #E2852E;
+            }    
+            nav a{
+                margin-left: 35px;
+                color: #E2852E;
+                font-weight:bold;
+                text-decoration: none;
+                
+            }
+            nav a:hover {
+                color: #000;
+            }    
+            
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .search-box input {
+                padding: 8px 12px;
+                width: 450px;
+                border-radius: 5px;
+                border: 1px solid #aaa;
+                font-size: 14px;
+                background-color: #f3f3f3;
+                color: #666;
+                text-align: left;
+            }  
+            .header-right {
+                display: flex;
+                align-items: center;
+                gap:20px;
+                border: solid 2px #E2852E;
+                border-radius: 15px;
+                background-color: #ABE0F0;
+            }
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #ABE0F0;
+                border: 2px solid #E2852E;
+                border-top: transparent;
+                border-radius:0px 0px 15px 15px;
+                padding: 10px 0;
+                min-width: 100%;
+                
+            }   
+            .dropdown-menu a {
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #E2852E;
+                font-weight: bold;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            
+            }  
+            .banner img{
+                width:95%;
+                height: auto;
+                display:block;
+                margin:auto;
+
+            }
+            .products-section {
+                display: flex;
+                gap: 40px;
+                justify-content: center;
+                padding: 100px;
+                flex-wrap: wrap;
+                padding-bottom: 80px;
+                width: 70%;
+                margin: auto;
+            }
+            .new-arrivals, .best-sellers {
+                flex: 1 1 400px;
+                background-color: #FFEED6;
+                padding: 20px;
+                border-radius: 20px;
+            }    
+            .products{
+                display:flex;
+                justify-content: center;
+                gap: 130px;
+                flex-wrap: wrap;
+
+            }
+            .product-card{
+                width: 400px;
+                height: 500px;
+                background-color: rgb(233, 187, 62);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                color: #0c0b0b;
+                cursor:pointer;
+                overflow: hidden;
+                
+            }
+            .section-title {
+                text-align: center;
+                color: #E2852E;
+                margin-bottom: 80px;
+            }
+            .footer-top{
+                background-color: #ABE0F0;
+                font-size: large;
+                text-align: center;
+                border-top:solid 3px #E2852E;
+                
+            }
+            .footer-bottom{
+                background-color: #FFEE91;
+                font-size: large;
+                text-align: center;
+                padding: 20px;
+
+                
+            }
+            .footer-top img {
+                height: 100px;
+            }
+            .image-holder{
+                display: inline-block;
+                transition: opacity 0.5s ease;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                overflow: visible;
+
+            }   
+            .image-holder img{
+                display:block;
+                width:100%;
+                height:100%;
+            }
+            .image-first{
+                
+                width: 100%;
+                height: 100%;
+                display: block;
+                opacity: 1;
+                border-radius: 10px;
+            }
+            .image-second{
+                position:absolute;
+                top:0;
+                overflow: auto;
+                height: 100%;
+                width: 100%;
+                display: block;
+                opacity: 0;
+                border-radius: 10px;
+                z-index: 2;
+            }
+            .dropdetails{
+                opacity:0;
+                position:fixed;
+                top: 50%;
+                left:70px;
+                overflow:visible;
+                background-color:#E2852E ;
+                border-radius: 10px;
+                width:500px;
+                padding: 5px;
+                border:groove black;
+                pointer-events: none;
+                z-index: 100000;
+            }
+            .image-holder:hover .image-first {
+                opacity: 0;
+            }
+             .image-holder:hover .image-second{ 
+                opacity: 1;   
+            }
+            .image-holder:hover .dropdetails{
+                opacity:1;
+            }
+            .product-title {
+                position: absolute;
+                top: 10px;
+                left:10%;
+                color: #E2852E;
+                background-color: #ABE0F0;
+                padding: 8px 16px;
+                border-radius: 8px;
+                margin: 0;
+                font-size: 18px;
+                z-index: 3;
+                text-align: center;
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+    <body>
+         <header>
+            <div class="header-left">
+                <img src="https://github.com/zkarakasis/Pet-Shop/blob/master/photos/logo.png?raw=true" alt="logo" height="100" >
+                <h1>Pup Fiction </h1>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <div class="header-right">
+                    <nav>
+                        <a href="../index.html">Home</a>
+                        <div class="dropdown">
+                            <a class="dropdown-pets">Pets</a>
+                            <div class="dropdown-menu">
+                                <a href="dogs.html">Dogs</a>
+                                <a href="../Cat Product Page/Cat products/cats.html">Cats</a>
+                                <a href="../Fish Product Page/Fish products/fish.html">Fish</a>
+                                <a href="../birds/Birds.html">Birds</a>
+                                <a href="../exotic animals/ExoticAnimals.html">Other</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="../Products/products.html">Products</a>
+                        <a href="../pet_quiz/quiz.html">Quiz</a>
+                        <a href="../aboutUs.html">About Us</a>
+                    </nav>
+
+                    
+                    <div class="cart-container">
+                        <a href="../checkout.html" class="cart-link">
+                            🛒 <span id="cartTotal" class="cart-number"></span>
+                        </a>
+                        <button class="clear-cart-btn" onclick="resetCart()">✕</button>
+                    </div>
+            </div> 
+        </header>
+        <main>
+            
+            <div class="products-section">
+                <section class="new-arrivals">
+                    <h2 class="section-title">Dogs</h2> 
+                    <div class="products">
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Corgi </h3>
+                                <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAu_P37qDq96iEg4MvbCfrOMyd7zLpYS_6FVu7u7td2_zC-S1nCJCd0DqZirNSU3QtO0OyEznixWg5aBVgkeSuPcmpAw-DC5NnhtlaHA&s=10" class="image-first" alt="Corgi" >
+                                <a href="Corgi.html" ><img src="https://www.purina.gr/sites/default/files/2021-02/BREED%20Hero_0137_welsh_corgi_pembroke.jpg" class="image-second" alt="Corgi"></a>
+                                <div class="dropdetails">The Pembroke Welsh Corgi is a cattle herding dog breed that originated in Pembrokeshire, Wales.[1] 
+                                The name Corgi is of Welsh origin, and is a compound of the words cor and ci (mutated to gi), meaning "dwarf" and "dog", 
+                                respectively.</div>
+                                
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Cannis</h3>
+                                <img src ="https://media.istockphoto.com/id/1486727816/photo/profile-of-large-male-grey-wolf-walking-on-a-hill-in-the-forest.jpg?s=612x612&w=0&k=20&c=zmotwYQQ5lpuzkluHUJ8Ywmrd0ZbXdWT7RyjrcwU-xM=" class="image-first" alt="Cannis"  >
+                                <a href="Cannis.html" ><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/155059090/large.jpg" class="image-second" alt="Cannis"></a>
+                                <div class="dropdetails">The dog (Canis familiaris or Canis lupus familiaris) is a domesticated descendant of the gray wolf. 
+                                Also called the domestic dog, it was selectively bred from a population of wolves during the Late Pleistocene
+                                by hunter-gatherers.</div>
+
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Bulldog</h3>
+                                <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3uHm_lnS1FF4P9WhwDn9csHlkUcyptBH5wLiLCRIJTvJHo6D8T9bDQDZQMT4atrC3vNvQAiHaHTTIGUrHB4qWnujI1nOPbaN_xtJSD-0&s=10" class="image-first" alt="Bulldog" >
+                                <a href="./Bulldog.html"><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Champion_Charlie_Muscles_%282%29.jpg" class="image-second" alt="Bulldog"></a>
+                                <div class="dropdetails">The Bulldog is a British breed of dog of mastiff type. It may also be known as the English Bulldog or British Bulldog.</div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">Shiba Inu</h3>
+                                <img src ="https://puppy4u.gr/wp-content/uploads/2017/03/shiba-inu.jpg" class="image-first" alt="birds" >
+                                <a href="shiba.html" ><img src="https://puppy4u.gr/wp-content/uploads/2017/03/shiba-inu-dog.jpg" class="image-second" alt="birds"></a>
+                                <div class="dropdetails">It is a calm, dignified, intelligent and independent dog. The owner must be experienced because it needs early socialization and then training becomes easy. It is not wise to let it roam freely (without a leash) because
+                                due to its hunting nature it can chase another animal and get lost.</div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">DACHSHUND</h3>
+                                <img src ="https://www.zooplus.ie/magazine/wp-content/uploads/2018/05/Dachshund-puppy.webp" class="image-first" alt="Cannary" >
+                                <a href="DACHSHUND.html" ><img src="https://yumove.co.uk/cdn/shop/files/Dachshund.jpg?v=1749573704&width=550" class="image-second" alt="Cannary"></a>
+                                <div class="dropdetails">One of the most stubborn small dogs that crave human presence. Excellent hunters and amazing at getting into everything. They bark a lot and cry when left alone.
+                                Otherwise they are lovable and will make you laugh a lot with their strange antics and their special walk.</div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">BASSE HOUND</h3>
+                                <img src ="https://www.hundeo.com/wp-content/uploads/2019/07/Basset-Hound-Profil.jpg" class="image-first" alt="Common Haffinch" >
+                                <a href="BASSEHOUND.html" ><img src="https://assets.orvis.com/is/image/orvisprd/AdobeStock_71148352?wid=1023&src=is($object$:7-3)&qlt=85&resMode=sharp2&op_usm=1.75,0.3,2,0" class="image-second" alt="Common Haffinch"></a>
+                                <div class="dropdetails">The Basset Hound is a friendly dog, both with people and with other pets, and is also an excellent companion for children. Because Bassets are scent hounds, they should always
+                                be taken outside on a leash. Although they are considered lazy, they have a tendency to run after prey, so a leash is very important for their safety.</div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="image-holder">
+                                <h3 class="product-title">AMERICAN STAFFORDSHIRE TERRIER</h3>
+                                <img src ="https://www.zooplus.co.uk/magazine/wp-content/uploads/2025/04/AdobeStock_219130672.webp" class="image-first" alt="Parrot" >
+                                <a href="AMERICANSTAFFORDSHIRETERRIER.html"><img src="https://moderndogmagazine.com/wp-content/uploads/2021/05/bigstock-AmericanSatff_puppy-401256695-940x640.jpg" class="image-second" alt="Parrot"></a>
+                                <div class="dropdetails">The American Staffordshire Terrier is a medium-sized, muscular dog, with a wide variety of colors in its coat. The American 
+                                Staffordshire Terrier is perhaps the most misunderstood breed in the world. They have earned the reputation of being ruthless dogs that attack without cause.</div>
+                            </div>
+                        </div>
+                </section>
+            </div>   
+        </main>
+             <footer>
+                <div class = "footer-top"> 
+                    <img src="https://github.com/zkarakasis/Pet-Shop/blob/master/photos/logo.png?raw=true">
+                </div>
+                <div class = "footer-bottom">
+                    <a href="../aboutUs.html" >About us</a>  
+                </div>
+            </footer>  
+    </body>
+    <script>
+            const holders = document.querySelectorAll(".image-holder");
+            holders.forEach(holder => {
+                const dropdetails = holder.querySelector(".dropdetails");
+                let hovering = false;
+                
+                holder.addEventListener("mouseenter", function(){
+                    hovering = true;
+                });
+                
+                holder.addEventListener("mouseleave", function(){
+                    hovering = false;
+                });
+                
+                holder.addEventListener("mousemove", function(moving){
+                    if(hovering){
+                        dropdetails.style.left = (moving.clientX + 10) + "px";
+                        dropdetails.style.top = (moving.clientY + 10) + "px";
+                    }
+                });
+            });
+     </script>
+    
+
+</html>

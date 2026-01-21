@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Siamese </title>
-    <link rel="stylesheet" href="../Cat products/styles1.css">
+    <title> Shinu inu </title>
+    <link rel="stylesheet" href="../style.css">
     <style>
+            
 
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            } 
 
             /* For the image slider */
 
@@ -82,6 +88,20 @@
                 background-color: #E2852E;
             }
 
+            .add-to-cart{
+                padding: 12px 24px;
+                font-size: 16px;
+                background-color: #E2852E;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .add-to-cart:hover{
+                background-color: #c96f1f;
+                transform: scale(1.05);
+            }
+            
             /* Product page Css */
             .product-page{
                 display: flex;
@@ -133,6 +153,8 @@
                 margin-top: 60px;
                 width: 100%;
                 clear: both;
+                position:fixed;
+                bottom: 0%;
             }
 
             .footer-container{
@@ -157,26 +179,14 @@
                 margin: 5px 0;
                 font-size: 14px;
             }
-
-            /* Fix for the footer not being at the full bottom */
-
-            .page-wrapper{
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-            }
-
-            main{
-                flex: 1;
-            }
     </style>
 </head>
 <body>
-    <div class="page-wrapper">
+     <div class="page-wrapper">
         <!-- Header section -->
-                    <header>
+    <header>
             <div class="header-left">
-                <img src="../../photos/logo.png" alt="logo" height="100" >
+                <img src="../photos/logo.png" alt="logo" height="100" >
                 <h1>Pup Fiction </h1>
             </div>
 
@@ -187,27 +197,27 @@
 
             <div class="header-right">
                     <nav>
-                        <a href="../../index.html">Home</a>
+                        <a href="../index.html">Home</a>
                         <div class="dropdown">
                             <a class="dropdown-pets">Pets</a>
                             <div class="dropdown-menu">
-                                <a href="../../dogs/dogs.html">Dogs</a>
-                                <a href="../Cat products/cats.html">Cats</a>
-                                <a href="../../Fish Product Page/Fish products/fish.html">Fish</a>
-                                <a href="../../birds/birds.html">Birds</a>
-                                <a href="../../exotic animals/ExoticAnimals.html">Other</a>
+                                <a href="dogs.html">Dogs</a>
+                                <a href="../Cat Product Page/Cat products/cats.html">Cats</a>
+                                <a href="../Fish Product Page/Fish products/fish.html">Fish</a>
+                                <a href="../birds/Birds.html">Birds</a>
+                                <a href="../exotic animals/ExoticAnimals.html">Other</a>
                             </div>
                         </div>
                         
                         
-                        <a href="../../Products/products.html">Products</a>
-                        <a href="../../pet_quiz/quiz.html">Quiz</a>
-                        <a href="../../aboutUs.html">About Us</a>
+                        <a href="../Products/products.html">Products</a>
+                        <a href="../pet_quiz/quiz.html">Quiz</a>
+                        <a href="../aboutUs.html">About Us</a>
                     </nav>
 
                     
                     <div class="cart-container">
-                        <a href="../../checkout.html" class="cart-link">
+                        <a href="checkout.html" class="cart-link">
                             🛒 <span id="cartTotal" class="cart-number"></span>
                         </a>
                         <button class="clear-cart-btn" onclick="resetCart()">✕</button>
@@ -219,36 +229,36 @@
         <!-- Product Image -->
         <section class="product-image">
             <div class="slider">
-                <img src="../photos/Siamese.jpg" class="Slide active" alt="Slide 1">
-                <img src="../photos_sliders/siamese_s2.jpg" class="Slide" alt="Slide 2">
-                <img src="../photos_sliders/siamese_s3.jpg" class="Slide" alt="Slide 2">
+                <img src="../photos/shiba.jpg" class="Slide active" alt="Slide 1">
+                <img src="../photos/shiba_s2.jpg" class="Slide" alt="Slide 2">
+                <img src="../photos/shiba_s3.jpg" class="Slide" alt="Slide 2">
 
                 <button class="prev" onclick="changeSlide(-1)"> prev </button>
                 <button class="next" onclick="changeSlide(1)"> next </button>
             </div>
         </section>
-        
+
         <section class="product-info">
-            <h1> Siamese </h1>
+            <h1> Shiba inu </h1>
             <!-- Price -->
             <p class="price">
-                <strong> Price: </strong> 600€
+                <strong> Price: </strong> 650€
             </p>
             <!-- Availability -->
             <p class="availability">
                 <strong> Availability: </strong> In stock
             </p>
-            <!-- Add-to-cart -->
-            <button class="add-to-cart" onclick="addToCart(600)"> Add to cart </button>
+            <!-- Add-to-cart  -->
+            <button class="add-to-cart" onclick="addToCart(650)"> Add to cart </button>
             <!-- Description -->
             <p class="description">
-                   An intelligent and vocal cat known for its striking blue eyes. Siamese cats are very social and love interacting with their owners.
+                 The Shiba Inu is a small to medium-sized dog from Japan, known for its fluffy coat, curled tail, and fox-like face. It is lively, smart, and loyal, making it a popular pet around the world.
                 <!-- Hidden info (only active when *see full description* button is pressed) -->
                 <div class="hidden-text" id="moreText">
                     <ul>
-                        <li> Short coat with striking color points </li>
-                        <li> Very vocal and social</li>
-                        <li> Intelligent and active </li>
+                        <li> Dog breed small to medium-sized dog. </li>
+                        <li> Fluffy and cute has a curled tail and fox-like face </li>
+                        <li> From Japan originally bred for hunting. </li>
                     </ul>
                 </div>
             </p>
@@ -260,7 +270,7 @@
         <div class="footer-container">
 
                 <div class="footer-logo">
-                    <img src="/photos/logo.png" alt="logo">
+                    <img src="../photos/logo.png" alt="logo">
                 </div>
             
 
@@ -319,4 +329,5 @@
         }
     }
   </script>
+</body>
 </html>

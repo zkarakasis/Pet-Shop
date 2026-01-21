@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Siamese </title>
-    <link rel="stylesheet" href="../Cat products/styles1.css">
+    <title> Agapornis the Masked </title>
+    <link rel="stylesheet" href="../styles.css">
     <style>
+            
 
+            .cart {
+            font-size: 28px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            } 
 
             /* For the image slider */
 
@@ -82,6 +88,20 @@
                 background-color: #E2852E;
             }
 
+            .add-to-cart{
+                padding: 12px 24px;
+                font-size: 16px;
+                background-color: #E2852E;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .add-to-cart:hover{
+                background-color: #c96f1f;
+                transform: scale(1.05);
+            }
+            
             /* Product page Css */
             .product-page{
                 display: flex;
@@ -133,6 +153,8 @@
                 margin-top: 60px;
                 width: 100%;
                 clear: both;
+                position:fixed;
+                bottom: 0%;
             }
 
             .footer-container{
@@ -157,26 +179,14 @@
                 margin: 5px 0;
                 font-size: 14px;
             }
-
-            /* Fix for the footer not being at the full bottom */
-
-            .page-wrapper{
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-            }
-
-            main{
-                flex: 1;
-            }
     </style>
 </head>
 <body>
     <div class="page-wrapper">
         <!-- Header section -->
-                    <header>
+         <header>
             <div class="header-left">
-                <img src="../../photos/logo.png" alt="logo" height="100" >
+                <img src="../photos/logo.png" alt="logo" height="100" >
                 <h1>Pup Fiction </h1>
             </div>
 
@@ -187,27 +197,27 @@
 
             <div class="header-right">
                     <nav>
-                        <a href="../../index.html">Home</a>
+                        <a href="../index.html">Home</a>
                         <div class="dropdown">
                             <a class="dropdown-pets">Pets</a>
                             <div class="dropdown-menu">
-                                <a href="../../dogs/dogs.html">Dogs</a>
-                                <a href="../Cat products/cats.html">Cats</a>
-                                <a href="../../Fish Product Page/Fish products/fish.html">Fish</a>
-                                <a href="../../birds/birds.html">Birds</a>
-                                <a href="../../exotic animals/ExoticAnimals.html">Other</a>
+                                <a href="../dogs/dogs.html">Dogs</a>
+                                <a href="../Cat Product Page/Cat products/cats.html">Cats</a>
+                                <a href="../Fish Product Page/Fish products/fish.html">Fish</a>
+                                <a href="Birds.html">Birds</a>
+                                <a href="../exotic animals/ExoticAnimals.html">Other</a>
                             </div>
                         </div>
                         
                         
-                        <a href="../../Products/products.html">Products</a>
-                        <a href="../../pet_quiz/quiz.html">Quiz</a>
-                        <a href="../../aboutUs.html">About Us</a>
+                        <a href="../Products/products.html">Products</a>
+                        <a href="../pet_quiz/quiz.html">Quiz</a>
+                        <a href="../aboutUs.html">About Us</a>
                     </nav>
 
                     
                     <div class="cart-container">
-                        <a href="../../checkout.html" class="cart-link">
+                        <a href="checkout.html" class="cart-link">
                             🛒 <span id="cartTotal" class="cart-number"></span>
                         </a>
                         <button class="clear-cart-btn" onclick="resetCart()">✕</button>
@@ -219,40 +229,35 @@
         <!-- Product Image -->
         <section class="product-image">
             <div class="slider">
-                <img src="../photos/Siamese.jpg" class="Slide active" alt="Slide 1">
-                <img src="../photos_sliders/siamese_s2.jpg" class="Slide" alt="Slide 2">
-                <img src="../photos_sliders/siamese_s3.jpg" class="Slide" alt="Slide 2">
+                <img src="../phottoschrisostomos/agapo1.jpg" class="Slide active" alt="Slide 1">
+                <img src="../phottoschrisostomos/agapo2.jpg" class="Slide" alt="Slide 2">
+                <img src="../phottoschrisostomos/agapo1.jpg" class="Slide" alt="Slide 2">
 
                 <button class="prev" onclick="changeSlide(-1)"> prev </button>
                 <button class="next" onclick="changeSlide(1)"> next </button>
             </div>
         </section>
-        
+
         <section class="product-info">
-            <h1> Siamese </h1>
+            <h1> Agapornis the Masked  </h1>
             <!-- Price -->
             <p class="price">
-                <strong> Price: </strong> 600€
+                <strong> Price: </strong> 90€
             </p>
             <!-- Availability -->
             <p class="availability">
                 <strong> Availability: </strong> In stock
             </p>
             <!-- Add-to-cart -->
-            <button class="add-to-cart" onclick="addToCart(600)"> Add to cart </button>
+             <button class="add-to-cart" onclick="addToCart(90)"> Add to cart </button>
             <!-- Description -->
-            <p class="description">
-                   An intelligent and vocal cat known for its striking blue eyes. Siamese cats are very social and love interacting with their owners.
-                <!-- Hidden info (only active when *see full description* button is pressed) -->
+            <p class="decription">
+                The yellow-collared lovebird (Agapornis personatus), also called masked lovebird, black-masked lovebird or eye ring lovebird, is a monotypic species of bird of the lovebird genus in the parrot family Psittaculidae. They are native to Arusha Region of Tanzania and have been introduced to Burundi and Kenya.[1] Although they have been observed in the wild in Puerto Rico, they are probably the result of escaped pets, and no reproduction has been recorded.[3] They have also been observed in Arizona.
                 <div class="hidden-text" id="moreText">
-                    <ul>
-                        <li> Short coat with striking color points </li>
-                        <li> Very vocal and social</li>
-                        <li> Intelligent and active </li>
-                    </ul>
+                    The yellow-collared lovebird is a mainly green small parrot about 14.5 cm (5.5 in) long. Its upperparts are a darker green than its lower surfaces. Its head is black, and it has a bright red beak with white above it and white eyerings. Yellow on the breast is continuous with a yellow collar and an expansion of yellow over the nape of the neck. Male and female have an identical external appearance.                
                 </div>
+                <button class="see-more-button" onclick="toggleDescription()"> See more </button>
             </p>
-            <button class="see-more-button" onclick="toggleDescription()"> See more </button>
         </section>
     </main>
     <!-- Footer section -->
@@ -260,7 +265,7 @@
         <div class="footer-container">
 
                 <div class="footer-logo">
-                    <img src="/photos/logo.png" alt="logo">
+                    <img src="../photos/logo.png" alt="logo">
                 </div>
             
 
@@ -281,8 +286,9 @@
             </div>
     </footer>
     </div>
+    
 </body>
-<script src="javaScript.js"></script>
+
 <!-- Javascript for the slider -->
  <script>
     let currentSlide = 0;
@@ -303,10 +309,9 @@
 
         Slide[currentSlide].classList.add("active");
     }
- </script>
- <!-- For the hidden details  -->
-  <script>
-    function toggleDescription() {
+
+
+     function toggleDescription() {
         const moreText = document.getElementById("moreText");
         const button = document.querySelector(".see-more-button");
 
@@ -318,5 +323,7 @@
             button.textContent = "See more"
         }
     }
-  </script>
+
+ </script>
+    <script src="../javaScript.js"></script>
 </html>
